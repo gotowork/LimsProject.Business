@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C6FD9F84-A18E-472D-BA4B-7ED274F5B276}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LimsProject.BusinessLayer</RootNamespace>
+    <AssemblyName>LimsProject.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Npgsql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjectBase.cs" />
+    <Compile Include="CBatchicp.cs" />
+    <Compile Include="CBatchicpFactory.cs" />
+    <Compile Include="CBatchicpKeys.cs" />
+    <Compile Include="CBatch_detail_aa.cs" />
+    <Compile Include="CBatch_detail_aaKeys.cs" />
+    <Compile Include="CBatch_result_aa_qaqc.cs" />
+    <Compile Include="CBatch_result_aa_qaqcFactory.cs" />
+    <Compile Include="CBatch_result_aa_qaqcKeys.cs" />
+    <Compile Include="CControl_sample.cs" />
+    <Compile Include="CControl_sampleFactory.cs" />
+    <Compile Include="CControl_sampleKeys.cs" />
+    <Compile Include="CControl_sample_condition.cs" />
+    <Compile Include="CControl_sample_conditionFactory.cs" />
+    <Compile Include="CControl_sample_conditionKeys.cs" />
+    <Compile Include="CControl_sample_frequency.cs" />
+    <Compile Include="CControl_sample_frequencyFactory.cs" />
+    <Compile Include="CControl_sample_frequencyKeys.cs" />
+    <Compile Include="CDecree.cs" />
+    <Compile Include="CDecreeFactory.cs" />
+    <Compile Include="CDecreeKeys.cs" />
+    <Compile Include="CDecree_detail.cs" />
+    <Compile Include="CDecree_detailFactory.cs" />
+    <Compile Include="CDecree_detailKeys.cs" />
+    <Compile Include="CElement_wavelength.cs" />
+    <Compile Include="CElement_wavelengthFactory.cs" />
+    <Compile Include="CElement_wavelengthKeys.cs" />
+    <Compile Include="CIcpimport.cs" />
+    <Compile Include="CIcpimportFactory.cs" />
+    <Compile Include="CIcpimportKeys.cs" />
+    <Compile Include="CIcp_lecturas.cs" />
+    <Compile Include="CIcp_lecturasFactory.cs" />
+    <Compile Include="CIcp_lecturasKeys.cs" />
+    <Compile Include="CMatrix_group.cs" />
+    <Compile Include="CMatrix_groupFactory.cs" />
+    <Compile Include="CMatrix_groupKeys.cs" />
+    <Compile Include="CMatrix_item.cs" />
+    <Compile Include="CMatrix_itemFactory.cs" />
+    <Compile Include="CMatrix_itemKeys.cs" />
+    <Compile Include="CMethods_multi.cs" />
+    <Compile Include="CMethods_multiFactory.cs" />
+    <Compile Include="CMethods_multiKeys.cs" />
+    <Compile Include="CSet_methods_calib.cs" />
+    <Compile Include="CSet_methods_calibFactory.cs" />
+    <Compile Include="CSet_methods_calibKeys.cs" />
+    <Compile Include="CSolution_titration.cs" />
+    <Compile Include="CSolution_titrationFactory.cs" />
+    <Compile Include="CSolution_titrationKeys.cs" />
+    <Compile Include="CTemplate_method_icp.cs" />
+    <Compile Include="CTemplate_method_icpFactory.cs" />
+    <Compile Include="CTemplate_method_icpKeys.cs" />
+    <Compile Include="CTemplate_method_icp_detail.cs" />
+    <Compile Include="CTemplate_method_icp_detailFactory.cs" />
+    <Compile Include="CTemplate_method_icp_detailKeys.cs" />
+    <Compile Include="CTitration_main.cs" />
+    <Compile Include="CTitration_mainFactory.cs" />
+    <Compile Include="CTitration_mainKeys.cs" />
+    <Compile Include="CType_sample_control.cs" />
+    <Compile Include="CType_sample_controlFactory.cs" />
+    <Compile Include="CType_sample_controlKeys.cs" />
+    <Compile Include="DataLayer\CBatchicpSql.cs" />
+    <Compile Include="DataLayer\CControl_sampleSql.cs" />
+    <Compile Include="DataLayer\CControl_sample_conditionSql.cs" />
+    <Compile Include="DataLayer\CControl_sample_frequencySql.cs" />
+    <Compile Include="DataLayer\CDecreeSql.cs" />
+    <Compile Include="DataLayer\CDecree_detailSql.cs" />
+    <Compile Include="DataLayer\CElement_wavelengthSql.cs" />
+    <Compile Include="DataLayer\CIcpimportSql.cs" />
+    <Compile Include="DataLayer\CMatrix_groupSql.cs" />
+    <Compile Include="DataLayer\CMatrix_itemSql.cs" />
+    <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
+    <Compile Include="DataLayer\CTemplate_method_icp_detailSql.cs" />
+    <Compile Include="DataLayer\CType_sample_controlSql.cs" />
+    <Compile Include="DataLayer\Modules\ModQaQcSql.cs" />
+    <Compile Include="DataLayer\CBatch_result_aa_qaqcSql.cs" />
+    <Compile Include="DataLayer\CIcp_lecturasSql.cs" />
+    <Compile Include="DataLayer\CMethods_multiSql.cs" />
+    <Compile Include="DataLayer\CSet_methods_calibSql.cs" />
+    <Compile Include="DataLayer\CSolution_titrationSql.cs" />
+    <Compile Include="DataLayer\CTitration_mainSql.cs" />
+    <Compile Include="DataLayer\DataLayerBase.cs" />
+    <Compile Include="DataLayer\Reports\CReportEtiqSql.cs" />
+    <Compile Include="DataLayer\Reports\CReportTestClientSql.cs" />
+    <Compile Include="DataLayer\Reports\CReportTestSql.cs" />
+    <Compile Include="InvalidBusinessObjectException.cs" />
+    <Compile Include="Modules\Authorization.cs" />
+    <Compile Include="Modules\CBatchManager.cs" />
+    <Compile Include="Modules\CSettings.cs" />
+    <Compile Include="Modules\CUser_Authorization.cs" />
+    <Compile Include="Modules\MComun.cs" />
+    <Compile Include="Modules\Methods.cs" />
+    <Compile Include="Modules\ModCalibStd.cs" />
+    <Compile Include="Modules\ModCorrelatives.cs" />
+    <Compile Include="Modules\ModMasterSearch.cs" />
+    <Compile Include="Modules\ModMaterialReference.cs" />
+    <Compile Include="Modules\ModParserQaqc.cs" />
+    <Compile Include="Modules\ModPrice.cs" />
+    <Compile Include="Modules\ModProcessBatch.cs" />
+    <Compile Include="Modules\ModQaQc.cs" />
+    <Compile Include="Modules\ModSolInterm.cs" />
+    <Compile Include="Modules\ModSolution.cs" />
+    <Compile Include="Modules\Qaqc.cs" />
+    <Compile Include="Modules\Reception.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\CReportEtiqFactory.cs" />
+    <Compile Include="Reports\CReportTestClientFactory.cs" />
+    <Compile Include="Reports\CReportTestFactory.cs" />
+    <Compile Include="Validation\BrokenRule.cs" />
+    <Compile Include="Validation\BrokenRulesList.cs" />
+    <Compile Include="Validation\ValidateRuleBase.cs" />
+    <Compile Include="Validation\ValidateRuleNotNull.cs" />
+    <Compile Include="Validation\ValidateRuleRegexMatching.cs" />
+    <Compile Include="Validation\ValidateRuleStringMaxLength.cs" />
+    <Compile Include="Validation\ValidateRuleStringRequired.cs" />
+    <Compile Include="Validation\ValidationRules.cs" />
+    <Compile Include="DataLayer\CCorr_modulesSql.cs" />
+    <Compile Include="CCorr_modules.cs" />
+    <Compile Include="CCorr_modulesFactory.cs" />
+    <Compile Include="CCorr_modulesKeys.cs" />
+    <Compile Include="DataLayer\CDigestion_methodSql.cs" />
+    <Compile Include="CDigestion_method.cs" />
+    <Compile Include="CDigestion_methodFactory.cs" />
+    <Compile Include="CDigestion_methodKeys.cs" />
+    <Compile Include="DataLayer\CProfile_systemSql.cs" />
+    <Compile Include="CProfile_system.cs" />
+    <Compile Include="CProfile_systemFactory.cs" />
+    <Compile Include="CProfile_systemKeys.cs" />
+    <Compile Include="DataLayer\CProcessSql.cs" />
+    <Compile Include="CProcess.cs" />
+    <Compile Include="CProcessFactory.cs" />
+    <Compile Include="CProcessKeys.cs" />
+    <Compile Include="DataLayer\CDocument_recepSql.cs" />
+    <Compile Include="CDocument_recep.cs" />
+    <Compile Include="CDocument_recepFactory.cs" />
+    <Compile Include="CDocument_recepKeys.cs" />
+    <Compile Include="DataLayer\CMrSql.cs" />
+    <Compile Include="CMr.cs" />
+    <Compile Include="CMrFactory.cs" />
+    <Compile Include="CMrKeys.cs" />
+    <Compile Include="DataLayer\CElementSql.cs" />
+    <Compile Include="CElement.cs" />
+    <Compile Include="CElementFactory.cs" />
+    <Compile Include="CElementKeys.cs" />
+    <Compile Include="DataLayer\CTablempnSql.cs" />
+    <Compile Include="CTablempn.cs" />
+    <Compile Include="CTablempnFactory.cs" />
+    <Compile Include="CTablempnKeys.cs" />
+    <Compile Include="DataLayer\CType_sampleSql.cs" />
+    <Compile Include="CType_sample.cs" />
+    <Compile Include="CType_sampleFactory.cs" />
+    <Compile Include="CType_sampleKeys.cs" />
+    <Compile Include="DataLayer\CTraySql.cs" />
+    <Compile Include="CTray.cs" />
+    <Compile Include="CTrayFactory.cs" />
+    <Compile Include="CTrayKeys.cs" />
+    <Compile Include="DataLayer\CDescription_sampleSql.cs" />
+    <Compile Include="CDescription_sample.cs" />
+    <Compile Include="CDescription_sampleFactory.cs" />
+    <Compile Include="CDescription_sampleKeys.cs" />
+    <Compile Include="DataLayer\CSerieSql.cs" />
+    <Compile Include="CSerie.cs" />
+    <Compile Include="CSerieFactory.cs" />
+    <Compile Include="CSerieKeys.cs" />
+    <Compile Include="DataLayer\CRecep_elemSql.cs" />
+    <Compile Include="CRecep_elem.cs" />
+    <Compile Include="CRecep_elemFactory.cs" />
+    <Compile Include="CRecep_elemKeys.cs" />
+    <Compile Include="DataLayer\CTemplate_method_detailSql.cs" />
+    <Compile Include="CTemplate_method_detail.cs" />
+    <Compile Include="CTemplate_method_detailFactory.cs" />
+    <Compile Include="CTemplate_method_detailKeys.cs" />
+    <Compile Include="DataLayer\CTree_expressionSql.cs" />
+    <Compile Include="CTree_expression.cs" />
+    <Compile Include="CTree_expressionFactory.cs" />
+    <Compile Include="CTree_expressionKeys.cs" />
+    <Compile Include="DataLayer\CTemplate_method_formatSql.cs" />
+    <Compile Include="CTemplate_method_format.cs" />
+    <Compile Include="CTemplate_method_formatFactory.cs" />
+    <Compile Include="CTemplate_method_formatKeys.cs" />
+    <Compile Include="DataLayer\CModuleSql.cs" />
+    <Compile Include="CModule.cs" />
+    <Compile Include="CModuleFactory.cs" />
+    <Compile Include="CModuleKeys.cs" />
+    <Compile Include="DataLayer\CCalibSql.cs" />
+    <Compile Include="CCalib.cs" />
+    <Compile Include="CCalibFactory.cs" />
+    <Compile Include="CCalibKeys.cs" />
+    <Compile Include="DataLayer\CPrice_attachSql.cs" />
+    <Compile Include="CPrice_attach.cs" />
+    <Compile Include="CPrice_attachFactory.cs" />
+    <Compile Include="CPrice_attachKeys.cs" />
+    <Compile Include="DataLayer\CAreaSql.cs" />
+    <Compile Include="CArea.cs" />
+    <Compile Include="CAreaFactory.cs" />
+    <Compile Include="CAreaKeys.cs" />
+    <Compile Include="DataLayer\CBatchSql.cs" />
+    <Compile Include="CBatch.cs" />
+    <Compile Include="CBatchFactory.cs" />
+    <Compile Include="CBatchKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_reportSql.cs" />
+    <Compile Include="CRecep_sample_report.cs" />
+    <Compile Include="CRecep_sample_reportFactory.cs" />
+    <Compile Include="CRecep_sample_reportKeys.cs" />
+    <Compile Include="DataLayer\CRecep_company_personSql.cs" />
+    <Compile Include="CRecep_company_person.cs" />
+    <Compile Include="CRecep_company_personFactory.cs" />
+    <Compile Include="CRecep_company_personKeys.cs" />
+    <Compile Include="DataLayer\CRetestSql.cs" />
+    <Compile Include="CRetest.cs" />
+    <Compile Include="CRetestFactory.cs" />
+    <Compile Include="CRetestKeys.cs" />
+    <Compile Include="DataLayer\CCompanySql.cs" />
+    <Compile Include="CCompany.cs" />
+    <Compile Include="CCompanyFactory.cs" />
+    <Compile Include="CCompanyKeys.cs" />
+    <Compile Include="DataLayer\CPersonSql.cs" />
+    <Compile Include="CPerson.cs" />
+    <Compile Include="CPersonFactory.cs" />
+    <Compile Include="CPersonKeys.cs" />
+    <Compile Include="DataLayer\CCondition_variableSql.cs" />
+    <Compile Include="CCondition_variable.cs" />
+    <Compile Include="CCondition_variableFactory.cs" />
+    <Compile Include="CCondition_variableKeys.cs" />
+    <Compile Include="DataLayer\CConvert_unit_measurementSql.cs" />
+    <Compile Include="CConvert_unit_measurement.cs" />
+    <Compile Include="CConvert_unit_measurementFactory.cs" />
+    <Compile Include="CConvert_unit_measurementKeys.cs" />
+    <Compile Include="DataLayer\CConfiguration_folderSql.cs" />
+    <Compile Include="CConfiguration_folder.cs" />
+    <Compile Include="CConfiguration_folderFactory.cs" />
+    <Compile Include="CConfiguration_folderKeys.cs" />
+    <Compile Include="DataLayer\CRecep_document_attachSql.cs" />
+    <Compile Include="CRecep_document_attach.cs" />
+    <Compile Include="CRecep_document_attachFactory.cs" />
+    <Compile Include="CRecep_document_attachKeys.cs" />
+    <Compile Include="DataLayer\CCells_reportedSql.cs" />
+    <Compile Include="CCells_reported.cs" />
+    <Compile Include="CCells_reportedFactory.cs" />
+    <Compile Include="CCells_reportedKeys.cs" />
+    <Compile Include="DataLayer\CReactiveSql.cs" />
+    <Compile Include="CReactive.cs" />
+    <Compile Include="CReactiveFactory.cs" />
+    <Compile Include="CReactiveKeys.cs" />
+    <Compile Include="DataLayer\CConfigurationSql.cs" />
+    <Compile Include="CConfiguration.cs" />
+    <Compile Include="CConfigurationFactory.cs" />
+    <Compile Include="CConfigurationKeys.cs" />
+    <Compile Include="DataLayer\CProcess_user_systemSql.cs" />
+    <Compile Include="CProcess_user_system.cs" />
+    <Compile Include="CProcess_user_systemFactory.cs" />
+    <Compile Include="CProcess_user_systemKeys.cs" />
+    <Compile Include="DataLayer\CTrace_sample_elemSql.cs" />
+    <Compile Include="CTrace_sample_elem.cs" />
+    <Compile Include="CTrace_sample_elemFactory.cs" />
+    <Compile Include="CTrace_sample_elemKeys.cs" />
+    <Compile Include="DataLayer\CTrace_batchSql.cs" />
+    <Compile Include="CTrace_batch.cs" />
+    <Compile Include="CTrace_batchFactory.cs" />
+    <Compile Include="CTrace_batchKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_attachSql.cs" />
+    <Compile Include="CRecep_sample_attach.cs" />
+    <Compile Include="CRecep_sample_attachFactory.cs" />
+    <Compile Include="CRecep_sample_attachKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_detailSql.cs" />
+    <Compile Include="CRecep_sample_detail.cs" />
+    <Compile Include="CRecep_sample_detailFactory.cs" />
+    <Compile Include="CRecep_sample_detailKeys.cs" />
+    <Compile Include="DataLayer\CCells_attach_fileSql.cs" />
+    <Compile Include="CCells_attach_file.cs" />
+    <Compile Include="CCells_attach_fileFactory.cs" />
+    <Compile Include="CCells_attach_fileKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sampleSql.cs" />
+    <Compile Include="CRecep_sample.cs" />
+    <Compile Include="CRecep_sampleFactory.cs" />
+    <Compile Include="CRecep_sampleKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_dispatchSql.cs" />
+    <Compile Include="CRecep_sample_dispatch.cs" />
+    <Compile Include="CRecep_sample_dispatchFactory.cs" />
+    <Compile Include="CRecep_sample_dispatchKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_detail_elemSql.cs" />
+    <Compile Include="CRecep_sample_detail_elem.cs" />
+    <Compile Include="CRecep_sample_detail_elemFactory.cs" />
+    <Compile Include="CRecep_sample_detail_elemKeys.cs" />
+    <Compile Include="DataLayer\CRecep_sample_programSql.cs" />
+    <Compile Include="CRecep_sample_program.cs" />
+    <Compile Include="CRecep_sample_programFactory.cs" />
+    <Compile Include="CRecep_sample_programKeys.cs" />
+    <Compile Include="DataLayer\CType_solutionSql.cs" />
+    <Compile Include="CType_solution.cs" />
+    <Compile Include="CType_solutionFactory.cs" />
+    <Compile Include="CType_solutionKeys.cs" />
+    <Compile Include="DataLayer\CDocumentationSql.cs" />
+    <Compile Include="CDocumentation.cs" />
+    <Compile Include="CDocumentationFactory.cs" />
+    <Compile Include="CDocumentationKeys.cs" />
+    <Compile Include="DataLayer\CMr_detailSql.cs" />
+    <Compile Include="CMr_detail.cs" />
+    <Compile Include="CMr_detailFactory.cs" />
+    <Compile Include="CMr_detailKeys.cs" />
+    <Compile Include="DataLayer\CCells_programSql.cs" />
+    <Compile Include="CCells_program.cs" />
+    <Compile Include="CCells_programFactory.cs" />
+    <Compile Include="CCells_programKeys.cs" />
+    <Compile Include="DataLayer\CDocumentation_userSql.cs" />
+    <Compile Include="CDocumentation_user.cs" />
+    <Compile Include="CDocumentation_userFactory.cs" />
+    <Compile Include="CDocumentation_userKeys.cs" />
+    <Compile Include="DataLayer\CTemplate_methodSql.cs" />
+    <Compile Include="CTemplate_method.cs" />
+    <Compile Include="CTemplate_methodFactory.cs" />
+    <Compile Include="CTemplate_methodKeys.cs" />
+    <Compile Include="DataLayer\CCorrelativeSql.cs" />
+    <Compile Include="CCorrelative.cs" />
+    <Compile Include="CCorrelativeFactory.cs" />
+    <Compile Include="CCorrelativeKeys.cs" />
+    <Compile Include="DataLayer\CMr_jarSql.cs" />
+    <Compile Include="CMr_jar.cs" />
+    <Compile Include="CMr_jarFactory.cs" />
+    <Compile Include="CMr_jarKeys.cs" />
+    <Compile Include="DataLayer\CBatch_detail_aa_twofoldSql.cs" />
+    <Compile Include="CBatch_detail_aa_twofold.cs" />
+    <Compile Include="CBatch_detail_aa_twofoldFactory.cs" />
+    <Compile Include="CBatch_detail_aa_twofoldKeys.cs" />
+    <Compile Include="DataLayer\CPriceSql.cs" />
+    <Compile Include="CPrice.cs" />
+    <Compile Include="CPriceFactory.cs" />
+    <Compile Include="CPriceKeys.cs" />
+    <Compile Include="DataLayer\CMeasurement_unitSql.cs" />
+    <Compile Include="CMeasurement_unit.cs" />
+    <Compile Include="CMeasurement_unitFactory.cs" />
+    <Compile Include="CMeasurement_unitKeys.cs" />
+    <Compile Include="DataLayer\CSolution_methodsSql.cs" />
+    <Compile Include="CSolution_methods.cs" />
+    <Compile Include="CSolution_methodsFactory.cs" />
+    <Compile Include="CSolution_methodsKeys.cs" />
+    <Compile Include="DataLayer\CSet_calibsSql.cs" />
+    <Compile Include="CSet_calibs.cs" />
+    <Compile Include="CSet_calibsFactory.cs" />
+    <Compile Include="CSet_calibsKeys.cs" />
+    <Compile Include="DataLayer\CCompany_personSql.cs" />
+    <Compile Include="CCompany_person.cs" />
+    <Compile Include="CCompany_personFactory.cs" />
+    <Compile Include="CCompany_personKeys.cs" />
+    <Compile Include="DataLayer\CCalib_stdSql.cs" />
+    <Compile Include="CCalib_std.cs" />
+    <Compile Include="CCalib_stdFactory.cs" />
+    <Compile Include="CCalib_stdKeys.cs" />
+    <Compile Include="DataLayer\CGroup_solution_methodsSql.cs" />
+    <Compile Include="CGroup_solution_methods.cs" />
+    <Compile Include="CGroup_solution_methodsFactory.cs" />
+    <Compile Include="CGroup_solution_methodsKeys.cs" />
+    <Compile Include="DataLayer\CTemplate_method_aaSql.cs" />
+    <Compile Include="CTemplate_method_aa.cs" />
+    <Compile Include="CTemplate_method_aaFactory.cs" />
+    <Compile Include="CTemplate_method_aaKeys.cs" />
+    <Compile Include="DataLayer\CGroup_solutionSql.cs" />
+    <Compile Include="CGroup_solution.cs" />
+    <Compile Include="CGroup_solutionFactory.cs" />
+    <Compile Include="CGroup_solutionKeys.cs" />
+    <Compile Include="DataLayer\CSolutionSql.cs" />
+    <Compile Include="CSolution.cs" />
+    <Compile Include="CSolutionFactory.cs" />
+    <Compile Include="CSolutionKeys.cs" />
+    <Compile Include="DataLayer\CPrice_version_detailSql.cs" />
+    <Compile Include="CPrice_version_detail.cs" />
+    <Compile Include="CPrice_version_detailFactory.cs" />
+    <Compile Include="CPrice_version_detailKeys.cs" />
+    <Compile Include="DataLayer\CMemo_templateSql.cs" />
+    <Compile Include="CMemo_template.cs" />
+    <Compile Include="CMemo_templateFactory.cs" />
+    <Compile Include="CMemo_templateKeys.cs" />
+    <Compile Include="DataLayer\CMemo_priceSql.cs" />
+    <Compile Include="CMemo_price.cs" />
+    <Compile Include="CMemo_priceFactory.cs" />
+    <Compile Include="CMemo_priceKeys.cs" />
+    <Compile Include="DataLayer\CPrice_company_personSql.cs" />
+    <Compile Include="CPrice_company_person.cs" />
+    <Compile Include="CPrice_company_personFactory.cs" />
+    <Compile Include="CPrice_company_personKeys.cs" />
+    <Compile Include="DataLayer\CPrice_versionSql.cs" />
+    <Compile Include="CPrice_version.cs" />
+    <Compile Include="CPrice_versionFactory.cs" />
+    <Compile Include="CPrice_versionKeys.cs" />
+    <Compile Include="DataLayer\CUser_systemSql.cs" />
+    <Compile Include="CUser_system.cs" />
+    <Compile Include="CUser_systemFactory.cs" />
+    <Compile Include="CUser_systemKeys.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Instaladores\Componentes\MathParserNetSource\MathParserNet\MathParserNet.csproj">
+      <Project>{f5303d10-41f3-4142-9826-e2dafcf430eb}</Project>
+      <Name>MathParserNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LibraryBasicForm\LibraryBasicForm\LibraryBasicForm.csproj">
+      <Project>{36777684-d691-4228-857e-9cf03ebe0eb6}</Project>
+      <Name>LibraryBasicForm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
