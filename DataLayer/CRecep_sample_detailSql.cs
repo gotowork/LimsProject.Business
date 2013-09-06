@@ -79,6 +79,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_flag_counter_sample"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_flag_envelope_sealed", businessObject.Flag_envelope_sealed);
 				sqlCommand.Parameters["p_flag_envelope_sealed"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_des_container", businessObject.Des_container);
+				sqlCommand.Parameters["p_des_container"].NpgsqlDbType = NpgsqlDbType.Varchar;
 
 								
 				MainConnection.Open();
@@ -148,6 +150,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_flag_counter_sample"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_flag_envelope_sealed", businessObject.Flag_envelope_sealed);
 				sqlCommand.Parameters["p_flag_envelope_sealed"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_des_container", businessObject.Des_container);
+				sqlCommand.Parameters["p_des_container"].NpgsqlDbType = NpgsqlDbType.Varchar;
 
                 
                 MainConnection.Open();
@@ -489,6 +493,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CRecep_sample_detail.CRecep_sample_detailFields.Flag_envelope_sealed.ToString())))
 				{
 					businessObject.Flag_envelope_sealed = dataReader.GetBoolean(dataReader.GetOrdinal(CRecep_sample_detail.CRecep_sample_detailFields.Flag_envelope_sealed.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CRecep_sample_detail.CRecep_sample_detailFields.Des_container.ToString())))
+				{
+					businessObject.Des_container = dataReader.GetString(dataReader.GetOrdinal(CRecep_sample_detail.CRecep_sample_detailFields.Des_container.ToString()));
 				}
 
 

@@ -24,7 +24,8 @@ namespace LimsProject.BusinessLayer
 			Cod_des_sample,
 			Idrecep_sample,
 			Flag_counter_sample,
-			Flag_envelope_sealed
+			Flag_envelope_sealed,
+			Des_container
 		}
 		#endregion
 
@@ -46,6 +47,7 @@ namespace LimsProject.BusinessLayer
 			long? _idrecep_sample;
 			short? _flag_counter_sample;
 			bool? _flag_envelope_sealed;
+			string _des_container;
 
 		#endregion
 
@@ -259,6 +261,19 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public string  Des_container
+		{
+			 get { return _des_container; }
+			 set
+			 {
+				 if (_des_container != value)
+				 {
+					_des_container = value;
+					 PropertyHasChanged("Des_container");
+				 }
+			 }
+		}
+
 
 		#endregion
 
@@ -272,6 +287,7 @@ namespace LimsProject.BusinessLayer
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Name_sample", "Name_sample",300));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Cod_type_sample", "Cod_type_sample",5));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Cod_des_sample", "Cod_des_sample",5));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Des_container", "Des_container",50));
 		}
 
 		#endregion

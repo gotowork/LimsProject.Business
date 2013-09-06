@@ -192,10 +192,39 @@ namespace LimsProject.BusinessLayer.Modules
             List<CMeasurement_unit> lstMeasurement_unit = new CMeasurement_unitFactory().GetAll();
             List<CElement> lstElement = new CElementFactory().GetAll();
 
+            // query absorción atómica
+            var query_aa =
+                (from p in new CTemplate_method_aaFactory().GetAll()
+                 from q in lstMeasurement_unit.Where(x=> x.Idunit == p.Idunit_result)
+                 select new
+                 {
+                     Idtemplate_method = p.Idtemplate_method,
+                     Idunit_result = Convert.ToInt16(p.Idunit_result),
+                     Name_unit = q.Name_unit,
+                     Analisys_time = Convert.ToDecimal(p.Num_days) / Convert.ToDecimal(p.Num_samples)
+                 }).ToList();
+
+            // query vía clásica
+
+            // query icp
+
+            // query analisis de humedad
+            var query_ah =
+                (from p in new CTemplate_method_ahFactory().GetAll()
+                 from q in lstMeasurement_unit.Where(x => x.Idunit == p.Idunit_result)
+                 select new
+                 {
+                     Idtemplate_method = p.Idtemplate_method,
+                     Idunit_result = Convert.ToInt16(p.Idunit_result),
+                     Name_unit = q.Name_unit,
+                     Analisys_time = Convert.ToDecimal(0)
+                 }).ToList();
+
+            var queryTypeAnalysis = query_aa.Union(query_ah);
+
             List<CReception_template_method> lstCustom =
                 (from t1 in lstTemplate
-                 from k in new CTemplate_method_aaFactory().GetAll().Where(x=> x.Idtemplate_method == t1.Idtemplate_method)
-                 join t2 in lstMeasurement_unit on k.Idunit_result equals t2.Idunit
+                 from k in queryTypeAnalysis.Where(x=> x.Idtemplate_method == t1.Idtemplate_method)
                  join t3 in maxVersionTemplate on t1.Idtemplate_method equals t3.MaxIdtemplate_method    
                  join t4 in lstElement on t1.Idelement equals t4.Idelement
                  select new CReception_template_method
@@ -210,8 +239,8 @@ namespace LimsProject.BusinessLayer.Modules
                       Cod_type_sample = t1.Cod_type_sample,
                       Cost_method = t1.Cost_method,
                       Idunit_result = k.Idunit_result,
-                      Name_unit = t2.Name_unit,
-                      Analisys_time = Convert.ToDecimal(k.Num_days) / Convert.ToDecimal(k.Num_samples),
+                      Name_unit = k.Name_unit,
+                      Analisys_time = k.Analisys_time,
                       Cod_element = t4.Cod_element
                   }).OrderBy(c=> c.Cod_template_method).ToList<CReception_template_method>();
 
@@ -238,7 +267,9 @@ namespace LimsProject.BusinessLayer.Modules
                 case '5':
                     result = "NewmontGr";
                     break;
-
+                case '6':
+                    result = "Analisis de Humedad";
+                    break;
             }
             return result;
         }
