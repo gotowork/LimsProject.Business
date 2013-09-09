@@ -86,80 +86,83 @@ namespace LimsProject.BusinessLayer.Modules
             CRecep_sample_detail oRecep_sample_detail = new CRecep_sample_detailFactory().GetByPrimaryKey(new CRecep_sample_detailKeys(idrecep_sample_detail));
             CDescription_sample oDescription_sample = new CDescription_sampleFactory().GetByPrimaryKey(new CDescription_sampleKeys(oRecep_sample_detail.Cod_des_sample));
 
-            oBatch_detail_aa_twofold.Idtemplate_method = idtemplate_method;
-            oBatch_detail_aa_twofold.Idrecep_sample = idrecep_sample;
-            oBatch_detail_aa_twofold.Idrecep_sample_detail = idrecep_sample_detail;
-            oBatch_detail_aa_twofold.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
-            oBatch_detail_aa_twofold.Idunit_result = oTemplate_method_aa.Idunit_result;
-            oBatch_detail_aa_twofold.Weight1 = oTemplate_method_aa.Weight;
-            oBatch_detail_aa_twofold.Weight2 = oTemplate_method_aa.Weight;
-            oBatch_detail_aa_twofold.Volumen1 = oTemplate_method_aa.Volumen;
-            oBatch_detail_aa_twofold.Volumen2 = oTemplate_method_aa.Volumen;
-            oBatch_detail_aa_twofold.Dilu2 = oTemplate_method_aa.Dilution2;
-            oBatch_detail_aa_twofold.Dilu3 = oTemplate_method_aa.Dilution3;
+            if (oTemplate_method_aa != null)
+            {
+                oBatch_detail_aa_twofold.Idtemplate_method = idtemplate_method;
+                oBatch_detail_aa_twofold.Idrecep_sample = idrecep_sample;
+                oBatch_detail_aa_twofold.Idrecep_sample_detail = idrecep_sample_detail;
+                oBatch_detail_aa_twofold.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
+                oBatch_detail_aa_twofold.Idunit_result = oTemplate_method_aa.Idunit_result;
+                oBatch_detail_aa_twofold.Weight1 = oTemplate_method_aa.Weight;
+                oBatch_detail_aa_twofold.Weight2 = oTemplate_method_aa.Weight;
+                oBatch_detail_aa_twofold.Volumen1 = oTemplate_method_aa.Volumen;
+                oBatch_detail_aa_twofold.Volumen2 = oTemplate_method_aa.Volumen;
+                oBatch_detail_aa_twofold.Dilu2 = oTemplate_method_aa.Dilution2;
+                oBatch_detail_aa_twofold.Dilu3 = oTemplate_method_aa.Dilution3;
 
-            oBatch_detail_aa_twofold.Flag_dilu2 = false;
-            oBatch_detail_aa_twofold.Flag_dilu3 = false;
+                oBatch_detail_aa_twofold.Flag_dilu2 = false;
+                oBatch_detail_aa_twofold.Flag_dilu3 = false;
 
-            oBatch_detail_aa_twofold.Cod_des_sample = oRecep_sample_detail.Cod_des_sample;
-            oBatch_detail_aa_twofold.Order_des_sample = oDescription_sample.Priority_order;
+                oBatch_detail_aa_twofold.Cod_des_sample = oRecep_sample_detail.Cod_des_sample;
+                oBatch_detail_aa_twofold.Order_des_sample = oDescription_sample.Priority_order;
 
-            oBatch_detail_aa_twofold.Flag_mri = 0;
-            oBatch_detail_aa_twofold.Fum = methods.GetFactorConvertionUM(idtemplate_method);
-            oBatch_detail_aa_twofold.Qaqc_blk = 3;
-            oBatch_detail_aa_twofold.Qaqc_par = 3;
-            oBatch_detail_aa_twofold.Qaqc_mr = 3;
-            oBatch_detail_aa_twofold.Qaqc_error = 0;
+                oBatch_detail_aa_twofold.Flag_mri = 0;
+                oBatch_detail_aa_twofold.Fum = methods.GetFactorConvertionUM(idtemplate_method);
+                oBatch_detail_aa_twofold.Qaqc_blk = 3;
+                oBatch_detail_aa_twofold.Qaqc_par = 3;
+                oBatch_detail_aa_twofold.Qaqc_mr = 3;
+                oBatch_detail_aa_twofold.Qaqc_error = 0;
 
-            oBatch_detail_aa_twofold.Qaqc_approve = false;
-            oBatch_detail_aa_twofold.Qaqc_review = false;
-            oBatch_detail_aa_twofold.Qaqc_has_retest = 0;
-            oBatch_detail_aa_twofold.Qaqc_tmp_retest = 0;
-            oBatch_detail_aa_twofold.Qaqc_tmp_retest_idmethod = 0;
-            oBatch_detail_aa_twofold.Qaqc_approve_text = "";
-            oBatch_detail_aa_twofold.Qaqc_review_text = "";
-            oBatch_detail_aa_twofold.Qaqc_par_prev_batch = Qaqc_par_prev_batch;
+                oBatch_detail_aa_twofold.Qaqc_approve = false;
+                oBatch_detail_aa_twofold.Qaqc_review = false;
+                oBatch_detail_aa_twofold.Qaqc_has_retest = 0;
+                oBatch_detail_aa_twofold.Qaqc_tmp_retest = 0;
+                oBatch_detail_aa_twofold.Qaqc_tmp_retest_idmethod = 0;
+                oBatch_detail_aa_twofold.Qaqc_approve_text = "";
+                oBatch_detail_aa_twofold.Qaqc_review_text = "";
+                oBatch_detail_aa_twofold.Qaqc_par_prev_batch = Qaqc_par_prev_batch;
 
-            oBatch_detail_aa_twofold.Cod_interno = cod_interno;
-            oBatch_detail_aa_twofold.Cod_sample = str_cod_interno;
+                oBatch_detail_aa_twofold.Cod_interno = cod_interno;
+                oBatch_detail_aa_twofold.Cod_sample = str_cod_interno;
 
-            control_sample.Idtemplate_method = idtemplate_method;
-            //control_sample.Idrecep_sample = idrecep_sample;
-            //control_sample.Idrecep_sample_detail = idrecep_sample_detail;
-            //control_sample.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
-            control_sample.Weight1 = oTemplate_method_aa.Weight;
-            control_sample.Weight2 = oTemplate_method_aa.Weight;
-            control_sample.Volumen1 = oTemplate_method_aa.Volumen;
-            control_sample.Volumen2 = oTemplate_method_aa.Volumen;
-            control_sample.Dilu2 = oTemplate_method_aa.Dilution2;
-            control_sample.Dilu3 = oTemplate_method_aa.Dilution3;
+                control_sample.Idtemplate_method = idtemplate_method;
+                //control_sample.Idrecep_sample = idrecep_sample;
+                //control_sample.Idrecep_sample_detail = idrecep_sample_detail;
+                //control_sample.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
+                control_sample.Weight1 = oTemplate_method_aa.Weight;
+                control_sample.Weight2 = oTemplate_method_aa.Weight;
+                control_sample.Volumen1 = oTemplate_method_aa.Volumen;
+                control_sample.Volumen2 = oTemplate_method_aa.Volumen;
+                control_sample.Dilu2 = oTemplate_method_aa.Dilution2;
+                control_sample.Dilu3 = oTemplate_method_aa.Dilution3;
 
-            control_sample.Flag_dilu2 = false;
-            control_sample.Flag_dilu3 = false;
+                control_sample.Flag_dilu2 = false;
+                control_sample.Flag_dilu3 = false;
 
-            control_sample.Flag_mri = 1;
-            control_sample.Fum = methods.GetFactorConvertionUM(idtemplate_method);
-            control_sample.Qaqc_blk = 3;
-            control_sample.Qaqc_par = 3;
-            control_sample.Qaqc_mr = 3;
-            control_sample.Qaqc_error = 0;
-            control_sample.Qaqc_approve = false;
-            control_sample.Qaqc_review = false;         
-            control_sample.Qaqc_tmp_retest_idmethod = 0;
-            control_sample.Qaqc_approve_text = "";
-            control_sample.Qaqc_review_text = "";
+                control_sample.Flag_mri = 1;
+                control_sample.Fum = methods.GetFactorConvertionUM(idtemplate_method);
+                control_sample.Qaqc_blk = 3;
+                control_sample.Qaqc_par = 3;
+                control_sample.Qaqc_mr = 3;
+                control_sample.Qaqc_error = 0;
+                control_sample.Qaqc_approve = false;
+                control_sample.Qaqc_review = false;
+                control_sample.Qaqc_tmp_retest_idmethod = 0;
+                control_sample.Qaqc_approve_text = "";
+                control_sample.Qaqc_review_text = "";
 
-            Enabled_retest = true;
-            oRetest.Idrecep_sample_detail = idrecep_sample_detail;
-            oRetest.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
-            oRetest.Origin_batch = origin_batch;
-            oRetest.Useredit1 = user;
-            oRetest.Usernew = user;
-            oRetest.Type_retest = 'R';
-            oRetest.Status = true;
+                Enabled_retest = true;
+                oRetest.Idrecep_sample_detail = idrecep_sample_detail;
+                oRetest.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
+                oRetest.Origin_batch = origin_batch;
+                oRetest.Useredit1 = user;
+                oRetest.Usernew = user;
+                oRetest.Type_retest = 'R';
+                oRetest.Status = true;
 
-            // --- save in batch
-            SaveInBatch(oBatch_detail_aa_twofold, user);             
+                // --- save in batch
+                SaveInBatch(oBatch_detail_aa_twofold, user);
+            }
         }
 
         // --- insert sample came from retest full batch
@@ -251,72 +254,75 @@ namespace LimsProject.BusinessLayer.Modules
             CTemplate_method_aa oTemplate_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(idtemplate_method));
             CRecep_sample_detail oRecep_sample_detail = new CRecep_sample_detailFactory().GetByPrimaryKey(new CRecep_sample_detailKeys(idrecep_sample_detail));
             CDescription_sample oDescription_sample = new CDescription_sampleFactory().GetByPrimaryKey(new CDescription_sampleKeys(oRecep_sample_detail.Cod_des_sample));
-                        
-            oBatch_detail_aa_twofold.Idtemplate_method = idtemplate_method;
-            oBatch_detail_aa_twofold.Idrecep_sample = idrecep_sample;
-            oBatch_detail_aa_twofold.Idrecep_sample_detail = idrecep_sample_detail;
-            oBatch_detail_aa_twofold.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
-            oBatch_detail_aa_twofold.Idunit_result = oTemplate_method_aa.Idunit_result;
-            oBatch_detail_aa_twofold.Weight1 = oTemplate_method_aa.Weight;
-            oBatch_detail_aa_twofold.Weight2 = oTemplate_method_aa.Weight;
-            oBatch_detail_aa_twofold.Volumen1 = oTemplate_method_aa.Volumen;
-            oBatch_detail_aa_twofold.Volumen2 = oTemplate_method_aa.Volumen;
-            oBatch_detail_aa_twofold.Dilu2 = oTemplate_method_aa.Dilution2;
-            oBatch_detail_aa_twofold.Dilu3 = oTemplate_method_aa.Dilution3;
 
-            oBatch_detail_aa_twofold.Flag_dilu2 = false;
-            oBatch_detail_aa_twofold.Flag_dilu3 = false;
+            if (oTemplate_method_aa != null)
+            {
+                oBatch_detail_aa_twofold.Idtemplate_method = idtemplate_method;
+                oBatch_detail_aa_twofold.Idrecep_sample = idrecep_sample;
+                oBatch_detail_aa_twofold.Idrecep_sample_detail = idrecep_sample_detail;
+                oBatch_detail_aa_twofold.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
+                oBatch_detail_aa_twofold.Idunit_result = oTemplate_method_aa.Idunit_result;
+                oBatch_detail_aa_twofold.Weight1 = oTemplate_method_aa.Weight;
+                oBatch_detail_aa_twofold.Weight2 = oTemplate_method_aa.Weight;
+                oBatch_detail_aa_twofold.Volumen1 = oTemplate_method_aa.Volumen;
+                oBatch_detail_aa_twofold.Volumen2 = oTemplate_method_aa.Volumen;
+                oBatch_detail_aa_twofold.Dilu2 = oTemplate_method_aa.Dilution2;
+                oBatch_detail_aa_twofold.Dilu3 = oTemplate_method_aa.Dilution3;
 
-            oBatch_detail_aa_twofold.Cod_des_sample = oRecep_sample_detail.Cod_des_sample;
-            oBatch_detail_aa_twofold.Order_des_sample = oDescription_sample.Priority_order;
+                oBatch_detail_aa_twofold.Flag_dilu2 = false;
+                oBatch_detail_aa_twofold.Flag_dilu3 = false;
 
-            oBatch_detail_aa_twofold.Flag_mri = 0;
-            oBatch_detail_aa_twofold.Fum = methods.GetFactorConvertionUM(idtemplate_method);
-            oBatch_detail_aa_twofold.Qaqc_blk = 3;
-            oBatch_detail_aa_twofold.Qaqc_par = 3;
-            oBatch_detail_aa_twofold.Qaqc_mr = 3;
-            oBatch_detail_aa_twofold.Qaqc_error = 0;
+                oBatch_detail_aa_twofold.Cod_des_sample = oRecep_sample_detail.Cod_des_sample;
+                oBatch_detail_aa_twofold.Order_des_sample = oDescription_sample.Priority_order;
 
-            oBatch_detail_aa_twofold.Qaqc_approve = false;
-            oBatch_detail_aa_twofold.Qaqc_review = false;
-            oBatch_detail_aa_twofold.Qaqc_has_retest = 0;
-            oBatch_detail_aa_twofold.Qaqc_tmp_retest = 0;
-            oBatch_detail_aa_twofold.Qaqc_tmp_retest_idmethod = 0;
-            oBatch_detail_aa_twofold.Qaqc_approve_text = "";
-            oBatch_detail_aa_twofold.Qaqc_review_text = "";
+                oBatch_detail_aa_twofold.Flag_mri = 0;
+                oBatch_detail_aa_twofold.Fum = methods.GetFactorConvertionUM(idtemplate_method);
+                oBatch_detail_aa_twofold.Qaqc_blk = 3;
+                oBatch_detail_aa_twofold.Qaqc_par = 3;
+                oBatch_detail_aa_twofold.Qaqc_mr = 3;
+                oBatch_detail_aa_twofold.Qaqc_error = 0;
 
-            oBatch_detail_aa_twofold.Cod_interno = cod_interno;
-            oBatch_detail_aa_twofold.Cod_sample = str_cod_interno;
+                oBatch_detail_aa_twofold.Qaqc_approve = false;
+                oBatch_detail_aa_twofold.Qaqc_review = false;
+                oBatch_detail_aa_twofold.Qaqc_has_retest = 0;
+                oBatch_detail_aa_twofold.Qaqc_tmp_retest = 0;
+                oBatch_detail_aa_twofold.Qaqc_tmp_retest_idmethod = 0;
+                oBatch_detail_aa_twofold.Qaqc_approve_text = "";
+                oBatch_detail_aa_twofold.Qaqc_review_text = "";
 
-            // --- control sample
+                oBatch_detail_aa_twofold.Cod_interno = cod_interno;
+                oBatch_detail_aa_twofold.Cod_sample = str_cod_interno;
 
-            control_sample.Idtemplate_method = idtemplate_method;
-            //control_sample.Idrecep_sample = idrecep_sample;
-            //control_sample.Idrecep_sample_detail = idrecep_sample_detail;
-            //control_sample.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
-            control_sample.Weight1 = oTemplate_method_aa.Weight;
-            control_sample.Weight2 = oTemplate_method_aa.Weight;
-            control_sample.Volumen1 = oTemplate_method_aa.Volumen;
-            control_sample.Volumen2 = oTemplate_method_aa.Volumen;
-            control_sample.Dilu2 = oTemplate_method_aa.Dilution2;
-            control_sample.Dilu3 = oTemplate_method_aa.Dilution3;
-            
-            control_sample.Flag_dilu2 = false;
-            control_sample.Flag_dilu3 = false;
+                // --- control sample
 
-            control_sample.Flag_mri = 1;
-            control_sample.Fum = methods.GetFactorConvertionUM(idtemplate_method);
-            control_sample.Qaqc_blk = 3;
-            control_sample.Qaqc_par = 3;
-            control_sample.Qaqc_mr = 3;
-            control_sample.Qaqc_error = 0;
-            control_sample.Qaqc_approve = false;
-            control_sample.Qaqc_review = false;            
-            control_sample.Qaqc_tmp_retest_idmethod = 0;
-            control_sample.Qaqc_approve_text = "";
-            control_sample.Qaqc_review_text = "";
+                control_sample.Idtemplate_method = idtemplate_method;
+                //control_sample.Idrecep_sample = idrecep_sample;
+                //control_sample.Idrecep_sample_detail = idrecep_sample_detail;
+                //control_sample.Idrecep_sample_detail_elem = idrecep_sample_detail_elem;
+                control_sample.Weight1 = oTemplate_method_aa.Weight;
+                control_sample.Weight2 = oTemplate_method_aa.Weight;
+                control_sample.Volumen1 = oTemplate_method_aa.Volumen;
+                control_sample.Volumen2 = oTemplate_method_aa.Volumen;
+                control_sample.Dilu2 = oTemplate_method_aa.Dilution2;
+                control_sample.Dilu3 = oTemplate_method_aa.Dilution3;
 
-            SaveInBatch(oBatch_detail_aa_twofold, user);
+                control_sample.Flag_dilu2 = false;
+                control_sample.Flag_dilu3 = false;
+
+                control_sample.Flag_mri = 1;
+                control_sample.Fum = methods.GetFactorConvertionUM(idtemplate_method);
+                control_sample.Qaqc_blk = 3;
+                control_sample.Qaqc_par = 3;
+                control_sample.Qaqc_mr = 3;
+                control_sample.Qaqc_error = 0;
+                control_sample.Qaqc_approve = false;
+                control_sample.Qaqc_review = false;
+                control_sample.Qaqc_tmp_retest_idmethod = 0;
+                control_sample.Qaqc_approve_text = "";
+                control_sample.Qaqc_review_text = "";
+
+                SaveInBatch(oBatch_detail_aa_twofold, user);
+            }
         }        
         
         private void SaveInBatch(CBatch_detail_aa_twofold oBatch_detail_aa_twofold, string user)

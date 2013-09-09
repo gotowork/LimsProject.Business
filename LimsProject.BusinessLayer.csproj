@@ -91,6 +91,9 @@
     <Compile Include="CMethods_multi.cs" />
     <Compile Include="CMethods_multiFactory.cs" />
     <Compile Include="CMethods_multiKeys.cs" />
+    <Compile Include="CPrep_samples.cs" />
+    <Compile Include="CPrep_samplesFactory.cs" />
+    <Compile Include="CPrep_samplesKeys.cs" />
     <Compile Include="CSet_methods_calib.cs" />
     <Compile Include="CSet_methods_calibFactory.cs" />
     <Compile Include="CSet_methods_calibKeys.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="DataLayer\CIcpimportSql.cs" />
     <Compile Include="DataLayer\CMatrix_groupSql.cs" />
     <Compile Include="DataLayer\CMatrix_itemSql.cs" />
+    <Compile Include="DataLayer\CPrep_samplesSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_ahSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icp_detailSql.cs" />
@@ -155,6 +159,7 @@
     <Compile Include="Modules\ModMasterSearch.cs" />
     <Compile Include="Modules\ModMaterialReference.cs" />
     <Compile Include="Modules\ModParserQaqc.cs" />
+    <Compile Include="Modules\ModPreparationSamples.cs" />
     <Compile Include="Modules\ModPrice.cs" />
     <Compile Include="Modules\ModProcessBatch.cs" />
     <Compile Include="Modules\ModQaQc.cs" />

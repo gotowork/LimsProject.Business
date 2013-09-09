@@ -56,5 +56,15 @@ namespace LimsProject.BusinessLayer.Modules
         {
             return @GetPathRoot() + "\\" + FOLDER_ANEXOS_COTIZACION;
         }
+
+        public string GetIdHumidityAnalysis()
+        {
+            return "110";
+        }
+
+        public string GetIDElements60Grades()
+        {
+            return "107|59|86|94";
+        }
     }
 }
