@@ -55,6 +55,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_flag_counter_sample"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_flag_60celsius", businessObject.Flag_60celsius);
 				sqlCommand.Parameters["p_flag_60celsius"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_date_creation", businessObject.Date_creation);
+				sqlCommand.Parameters["p_date_creation"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_input_sample_date", businessObject.Input_sample_date);
 				sqlCommand.Parameters["p_input_sample_date"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_input_sample_user", businessObject.Input_sample_user);
@@ -169,6 +171,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_flag_counter_sample"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_flag_60celsius", businessObject.Flag_60celsius);
 				sqlCommand.Parameters["p_flag_60celsius"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_date_creation", businessObject.Date_creation);
+				sqlCommand.Parameters["p_date_creation"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_input_sample_date", businessObject.Input_sample_date);
 				sqlCommand.Parameters["p_input_sample_date"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_input_sample_user", businessObject.Input_sample_user);
@@ -523,6 +527,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Flag_60celsius.ToString())))
 				{
 					businessObject.Flag_60celsius = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Flag_60celsius.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Date_creation.ToString())))
+				{
+					businessObject.Date_creation = dataReader.GetDateTime(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Date_creation.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Input_sample_date.ToString())))

@@ -14,6 +14,7 @@ namespace LimsProject.BusinessLayer
 			Flag_reject,
 			Flag_counter_sample,
 			Flag_60celsius,
+			Date_creation,
 			Input_sample_date,
 			Input_sample_user,
 			Weight_gross,
@@ -58,6 +59,7 @@ namespace LimsProject.BusinessLayer
 			bool? _flag_reject;
 			short? _flag_counter_sample;
 			bool? _flag_60celsius;
+			DateTime? _date_creation;
 			DateTime? _input_sample_date;
 			string _input_sample_user;
 			decimal? _weight_gross;
@@ -158,6 +160,19 @@ namespace LimsProject.BusinessLayer
 				 {
 					_flag_60celsius = value;
 					 PropertyHasChanged("Flag_60celsius");
+				 }
+			 }
+		}
+
+		public DateTime?  Date_creation
+		{
+			 get { return _date_creation; }
+			 set
+			 {
+				 if (_date_creation != value)
+				 {
+					_date_creation = value;
+					 PropertyHasChanged("Date_creation");
 				 }
 			 }
 		}
