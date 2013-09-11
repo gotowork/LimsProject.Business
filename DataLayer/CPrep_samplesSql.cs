@@ -93,10 +93,16 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_weight_gross_reject_date"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_weight_gross_reject_user", businessObject.Weight_gross_reject_user);
 				sqlCommand.Parameters["p_weight_gross_reject_user"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_sample", businessObject.Output_flag_sample);
+				sqlCommand.Parameters["p_output_flag_sample"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_cs", businessObject.Output_flag_cs);
+				sqlCommand.Parameters["p_output_flag_cs"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_re", businessObject.Output_flag_re);
+				sqlCommand.Parameters["p_output_flag_re"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_output_date_sample", businessObject.Output_date_sample);
 				sqlCommand.Parameters["p_output_date_sample"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_output_user_sample", businessObject.Output_user_sample);
-				sqlCommand.Parameters["p_output_user_sample"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_output_user_sample"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_output_date_cs", businessObject.Output_date_cs);
 				sqlCommand.Parameters["p_output_date_cs"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_output_user_cs", businessObject.Output_user_cs);
@@ -125,6 +131,14 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_store_output_user_re"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_observation2", businessObject.Observation2);
 				sqlCommand.Parameters["p_observation2"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_final_weight_gross", businessObject.Final_weight_gross);
+				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_moisture", businessObject.Final_moisture);
+				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_reject", businessObject.Final_reject);
+				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_sample_prepared", businessObject.Final_sample_prepared);
+				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
 								
 				MainConnection.Open();
@@ -209,10 +223,16 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_weight_gross_reject_date"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_weight_gross_reject_user", businessObject.Weight_gross_reject_user);
 				sqlCommand.Parameters["p_weight_gross_reject_user"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_sample", businessObject.Output_flag_sample);
+				sqlCommand.Parameters["p_output_flag_sample"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_cs", businessObject.Output_flag_cs);
+				sqlCommand.Parameters["p_output_flag_cs"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_output_flag_re", businessObject.Output_flag_re);
+				sqlCommand.Parameters["p_output_flag_re"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_output_date_sample", businessObject.Output_date_sample);
 				sqlCommand.Parameters["p_output_date_sample"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_output_user_sample", businessObject.Output_user_sample);
-				sqlCommand.Parameters["p_output_user_sample"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_output_user_sample"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_output_date_cs", businessObject.Output_date_cs);
 				sqlCommand.Parameters["p_output_date_cs"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_output_user_cs", businessObject.Output_user_cs);
@@ -241,6 +261,14 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_store_output_user_re"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_observation2", businessObject.Observation2);
 				sqlCommand.Parameters["p_observation2"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_final_weight_gross", businessObject.Final_weight_gross);
+				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_moisture", businessObject.Final_moisture);
+				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_reject", businessObject.Final_reject);
+				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_final_sample_prepared", businessObject.Final_sample_prepared);
+				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
                 
                 MainConnection.Open();
@@ -624,6 +652,21 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Weight_gross_reject_user = dataReader.GetString(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Weight_gross_reject_user.ToString()));
 				}
 
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_sample.ToString())))
+				{
+					businessObject.Output_flag_sample = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_sample.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_cs.ToString())))
+				{
+					businessObject.Output_flag_cs = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_cs.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_re.ToString())))
+				{
+					businessObject.Output_flag_re = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_flag_re.ToString()));
+				}
+
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_date_sample.ToString())))
 				{
 					businessObject.Output_date_sample = dataReader.GetDateTime(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_date_sample.ToString()));
@@ -631,7 +674,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_user_sample.ToString())))
 				{
-					businessObject.Output_user_sample = dataReader.GetDateTime(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_user_sample.ToString()));
+					businessObject.Output_user_sample = dataReader.GetString(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_user_sample.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Output_date_cs.ToString())))
@@ -702,6 +745,26 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Observation2.ToString())))
 				{
 					businessObject.Observation2 = dataReader.GetString(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Observation2.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_weight_gross.ToString())))
+				{
+					businessObject.Final_weight_gross = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_weight_gross.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_moisture.ToString())))
+				{
+					businessObject.Final_moisture = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_moisture.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_reject.ToString())))
+				{
+					businessObject.Final_reject = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_reject.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_sample_prepared.ToString())))
+				{
+					businessObject.Final_sample_prepared = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_sample_prepared.ToString()));
 				}
 
 

@@ -49,20 +49,26 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters["p_idelement_wavelength"].Direction = ParameterDirection.InputOutput;
 
-				sqlCommand.Parameters.AddWithValue("p_elementsymbol", businessObject.Elementsymbol);
-				sqlCommand.Parameters["p_elementsymbol"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
+				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_wavelength", businessObject.Wavelength);
 				sqlCommand.Parameters["p_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_lineorder", businessObject.Lineorder);
 				sqlCommand.Parameters["p_lineorder"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_plasmaview", businessObject.Plasmaview);
 				sqlCommand.Parameters["p_plasmaview"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idl", businessObject.Idl);
-				sqlCommand.Parameters["p_idl"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_linealidad", businessObject.Linealidad);
-				sqlCommand.Parameters["p_linealidad"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_mdl", businessObject.Mdl);
-				sqlCommand.Parameters["p_mdl"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_idl_axial", businessObject.Idl_axial);
+				sqlCommand.Parameters["p_idl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_idl_radial", businessObject.Idl_radial);
+				sqlCommand.Parameters["p_idl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_lineality_axial", businessObject.Lineality_axial);
+				sqlCommand.Parameters["p_lineality_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_lineality_radial", businessObject.Lineality_radial);
+				sqlCommand.Parameters["p_lineality_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_axial", businessObject.Mdl_axial);
+				sqlCommand.Parameters["p_mdl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_radial", businessObject.Mdl_radial);
+				sqlCommand.Parameters["p_mdl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ipc", businessObject.Ipc);
 				sqlCommand.Parameters["p_ipc"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfb", businessObject.Lfb);
@@ -120,20 +126,26 @@ namespace LimsProject.BusinessLayer.DataLayer
                 
 				sqlCommand.Parameters.AddWithValue("p_idelement_wavelength", businessObject.Idelement_wavelength);
 				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_elementsymbol", businessObject.Elementsymbol);
-				sqlCommand.Parameters["p_elementsymbol"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
+				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_wavelength", businessObject.Wavelength);
 				sqlCommand.Parameters["p_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_lineorder", businessObject.Lineorder);
 				sqlCommand.Parameters["p_lineorder"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_plasmaview", businessObject.Plasmaview);
 				sqlCommand.Parameters["p_plasmaview"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idl", businessObject.Idl);
-				sqlCommand.Parameters["p_idl"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_linealidad", businessObject.Linealidad);
-				sqlCommand.Parameters["p_linealidad"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_mdl", businessObject.Mdl);
-				sqlCommand.Parameters["p_mdl"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_idl_axial", businessObject.Idl_axial);
+				sqlCommand.Parameters["p_idl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_idl_radial", businessObject.Idl_radial);
+				sqlCommand.Parameters["p_idl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_lineality_axial", businessObject.Lineality_axial);
+				sqlCommand.Parameters["p_lineality_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_lineality_radial", businessObject.Lineality_radial);
+				sqlCommand.Parameters["p_lineality_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_axial", businessObject.Mdl_axial);
+				sqlCommand.Parameters["p_mdl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_radial", businessObject.Mdl_radial);
+				sqlCommand.Parameters["p_mdl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ipc", businessObject.Ipc);
 				sqlCommand.Parameters["p_ipc"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfb", businessObject.Lfb);
@@ -420,9 +432,9 @@ namespace LimsProject.BusinessLayer.DataLayer
 
 				businessObject.Idelement_wavelength = dataReader.GetInt32(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement_wavelength.ToString()));
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Elementsymbol.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement.ToString())))
 				{
-					businessObject.Elementsymbol = dataReader.GetString(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Elementsymbol.ToString()));
+					businessObject.Idelement = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Wavelength.ToString())))
@@ -440,19 +452,34 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Plasmaview = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Plasmaview.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_axial.ToString())))
 				{
-					businessObject.Idl = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl.ToString()));
+					businessObject.Idl_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_axial.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Linealidad.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_radial.ToString())))
 				{
-					businessObject.Linealidad = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Linealidad.ToString()));
+					businessObject.Idl_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_radial.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_axial.ToString())))
 				{
-					businessObject.Mdl = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl.ToString()));
+					businessObject.Lineality_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_axial.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_radial.ToString())))
+				{
+					businessObject.Lineality_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_radial.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl_axial.ToString())))
+				{
+					businessObject.Mdl_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl_axial.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl_radial.ToString())))
+				{
+					businessObject.Mdl_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Mdl_radial.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Ipc.ToString())))

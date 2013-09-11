@@ -33,6 +33,9 @@ namespace LimsProject.BusinessLayer
 			Weight_gross_reject,
 			Weight_gross_reject_date,
 			Weight_gross_reject_user,
+			Output_flag_sample,
+			Output_flag_cs,
+			Output_flag_re,
 			Output_date_sample,
 			Output_user_sample,
 			Output_date_cs,
@@ -48,7 +51,11 @@ namespace LimsProject.BusinessLayer
 			Store_output_user_cs,
 			Store_output_date_re,
 			Store_output_user_re,
-			Observation2
+			Observation2,
+			Final_weight_gross,
+			Final_moisture,
+			Final_reject,
+			Final_sample_prepared
 		}
 		#endregion
 
@@ -78,8 +85,11 @@ namespace LimsProject.BusinessLayer
 			decimal? _weight_gross_reject;
 			DateTime? _weight_gross_reject_date;
 			string _weight_gross_reject_user;
+			bool? _output_flag_sample;
+			bool? _output_flag_cs;
+			bool? _output_flag_re;
 			DateTime? _output_date_sample;
-			DateTime? _output_user_sample;
+			string _output_user_sample;
 			DateTime? _output_date_cs;
 			string _output_user_cs;
 			DateTime? _output_date_re;
@@ -94,6 +104,10 @@ namespace LimsProject.BusinessLayer
 			DateTime? _store_output_date_re;
 			string _store_output_user_re;
 			string _observation2;
+			bool? _final_weight_gross;
+			bool? _final_moisture;
+			bool? _final_reject;
+			bool? _final_sample_prepared;
 
 		#endregion
 
@@ -411,6 +425,45 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public bool?  Output_flag_sample
+		{
+			 get { return _output_flag_sample; }
+			 set
+			 {
+				 if (_output_flag_sample != value)
+				 {
+					_output_flag_sample = value;
+					 PropertyHasChanged("Output_flag_sample");
+				 }
+			 }
+		}
+
+		public bool?  Output_flag_cs
+		{
+			 get { return _output_flag_cs; }
+			 set
+			 {
+				 if (_output_flag_cs != value)
+				 {
+					_output_flag_cs = value;
+					 PropertyHasChanged("Output_flag_cs");
+				 }
+			 }
+		}
+
+		public bool?  Output_flag_re
+		{
+			 get { return _output_flag_re; }
+			 set
+			 {
+				 if (_output_flag_re != value)
+				 {
+					_output_flag_re = value;
+					 PropertyHasChanged("Output_flag_re");
+				 }
+			 }
+		}
+
 		public DateTime?  Output_date_sample
 		{
 			 get { return _output_date_sample; }
@@ -424,7 +477,7 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public DateTime?  Output_user_sample
+		public string  Output_user_sample
 		{
 			 get { return _output_user_sample; }
 			 set
@@ -619,6 +672,58 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public bool?  Final_weight_gross
+		{
+			 get { return _final_weight_gross; }
+			 set
+			 {
+				 if (_final_weight_gross != value)
+				 {
+					_final_weight_gross = value;
+					 PropertyHasChanged("Final_weight_gross");
+				 }
+			 }
+		}
+
+		public bool?  Final_moisture
+		{
+			 get { return _final_moisture; }
+			 set
+			 {
+				 if (_final_moisture != value)
+				 {
+					_final_moisture = value;
+					 PropertyHasChanged("Final_moisture");
+				 }
+			 }
+		}
+
+		public bool?  Final_reject
+		{
+			 get { return _final_reject; }
+			 set
+			 {
+				 if (_final_reject != value)
+				 {
+					_final_reject = value;
+					 PropertyHasChanged("Final_reject");
+				 }
+			 }
+		}
+
+		public bool?  Final_sample_prepared
+		{
+			 get { return _final_sample_prepared; }
+			 set
+			 {
+				 if (_final_sample_prepared != value)
+				 {
+					_final_sample_prepared = value;
+					 PropertyHasChanged("Final_sample_prepared");
+				 }
+			 }
+		}
+
 
 		#endregion
 
@@ -633,6 +738,7 @@ namespace LimsProject.BusinessLayer
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Weight_dry_user", "Weight_dry_user",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Moisture_reject_user", "Moisture_reject_user",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Weight_gross_reject_user", "Weight_gross_reject_user",20));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Output_user_sample", "Output_user_sample",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Output_user_cs", "Output_user_cs",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Output_user_re", "Output_user_re",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Observation1", "Observation1",50));

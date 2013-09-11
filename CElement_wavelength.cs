@@ -10,13 +10,16 @@ namespace LimsProject.BusinessLayer
 		public enum CElement_wavelengthFields
 		{
 			Idelement_wavelength,
-			Elementsymbol,
+			Idelement,
 			Wavelength,
 			Lineorder,
 			Plasmaview,
-			Idl,
-			Linealidad,
-			Mdl,
+			Idl_axial,
+			Idl_radial,
+			Lineality_axial,
+			Lineality_radial,
+			Mdl_axial,
+			Mdl_radial,
 			Ipc,
 			Lfb,
 			Qc,
@@ -32,13 +35,16 @@ namespace LimsProject.BusinessLayer
 		#region Data Members
 
 			int _idelement_wavelength;
-			string _elementsymbol;
+			short? _idelement;
 			string _wavelength;
 			short? _lineorder;
 			short? _plasmaview;
-			decimal? _idl;
-			decimal? _linealidad;
-			decimal? _mdl;
+			decimal? _idl_axial;
+			decimal? _idl_radial;
+			decimal? _lineality_axial;
+			decimal? _lineality_radial;
+			decimal? _mdl_axial;
+			decimal? _mdl_radial;
 			decimal? _ipc;
 			decimal? _lfb;
 			decimal? _qc;
@@ -66,15 +72,15 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public string  Elementsymbol
+		public short?  Idelement
 		{
-			 get { return _elementsymbol; }
+			 get { return _idelement; }
 			 set
 			 {
-				 if (_elementsymbol != value)
+				 if (_idelement != value)
 				 {
-					_elementsymbol = value;
-					 PropertyHasChanged("Elementsymbol");
+					_idelement = value;
+					 PropertyHasChanged("Idelement");
 				 }
 			 }
 		}
@@ -118,41 +124,80 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public decimal?  Idl
+		public decimal?  Idl_axial
 		{
-			 get { return _idl; }
+			 get { return _idl_axial; }
 			 set
 			 {
-				 if (_idl != value)
+				 if (_idl_axial != value)
 				 {
-					_idl = value;
-					 PropertyHasChanged("Idl");
+					_idl_axial = value;
+					 PropertyHasChanged("Idl_axial");
 				 }
 			 }
 		}
 
-		public decimal?  Linealidad
+		public decimal?  Idl_radial
 		{
-			 get { return _linealidad; }
+			 get { return _idl_radial; }
 			 set
 			 {
-				 if (_linealidad != value)
+				 if (_idl_radial != value)
 				 {
-					_linealidad = value;
-					 PropertyHasChanged("Linealidad");
+					_idl_radial = value;
+					 PropertyHasChanged("Idl_radial");
 				 }
 			 }
 		}
 
-		public decimal?  Mdl
+		public decimal?  Lineality_axial
 		{
-			 get { return _mdl; }
+			 get { return _lineality_axial; }
 			 set
 			 {
-				 if (_mdl != value)
+				 if (_lineality_axial != value)
 				 {
-					_mdl = value;
-					 PropertyHasChanged("Mdl");
+					_lineality_axial = value;
+					 PropertyHasChanged("Lineality_axial");
+				 }
+			 }
+		}
+
+		public decimal?  Lineality_radial
+		{
+			 get { return _lineality_radial; }
+			 set
+			 {
+				 if (_lineality_radial != value)
+				 {
+					_lineality_radial = value;
+					 PropertyHasChanged("Lineality_radial");
+				 }
+			 }
+		}
+
+		public decimal?  Mdl_axial
+		{
+			 get { return _mdl_axial; }
+			 set
+			 {
+				 if (_mdl_axial != value)
+				 {
+					_mdl_axial = value;
+					 PropertyHasChanged("Mdl_axial");
+				 }
+			 }
+		}
+
+		public decimal?  Mdl_radial
+		{
+			 get { return _mdl_radial; }
+			 set
+			 {
+				 if (_mdl_radial != value)
+				 {
+					_mdl_radial = value;
+					 PropertyHasChanged("Mdl_radial");
 				 }
 			 }
 		}
@@ -282,7 +327,6 @@ namespace LimsProject.BusinessLayer
 		internal override void AddValidationRules()
 		{
 			ValidationRules.AddRules(new Validation.ValidateRuleNotNull("Idelement_wavelength", "Idelement_wavelength"));
-			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Elementsymbol", "Elementsymbol",4));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Wavelength", "Wavelength",8));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
