@@ -10,12 +10,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LimsProject.BusinessLayer</RootNamespace>
     <AssemblyName>LimsProject.BusinessLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
@@ -109,6 +112,9 @@
     <Compile Include="CTemplate_method_ah.cs" />
     <Compile Include="CTemplate_method_ahFactory.cs" />
     <Compile Include="CTemplate_method_ahKeys.cs" />
+    <Compile Include="CTemplate_method_gr.cs" />
+    <Compile Include="CTemplate_method_grFactory.cs" />
+    <Compile Include="CTemplate_method_grKeys.cs" />
     <Compile Include="CTemplate_method_icp.cs" />
     <Compile Include="CTemplate_method_icpFactory.cs" />
     <Compile Include="CTemplate_method_icpKeys.cs" />
@@ -138,6 +144,7 @@
     <Compile Include="DataLayer\CMatrix_itemSql.cs" />
     <Compile Include="DataLayer\CPrep_samplesSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_ahSql.cs" />
+    <Compile Include="DataLayer\CTemplate_method_grSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icp_detailSql.cs" />
     <Compile Include="DataLayer\CType_preparation_sampleSql.cs" />
@@ -162,6 +169,7 @@
     <Compile Include="Modules\Methods.cs" />
     <Compile Include="Modules\ModCalibStd.cs" />
     <Compile Include="Modules\ModCorrelatives.cs" />
+    <Compile Include="Modules\ModIcp.cs" />
     <Compile Include="Modules\ModMasterSearch.cs" />
     <Compile Include="Modules\ModMaterialReference.cs" />
     <Compile Include="Modules\ModParserQaqc.cs" />

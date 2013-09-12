@@ -51,16 +51,16 @@ namespace LimsProject.BusinessLayer.DataLayer
 
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idelement_wavelength", businessObject.Idelement_wavelength);
+				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
 				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_wavelenght", businessObject.Wavelenght);
-				sqlCommand.Parameters["p_wavelenght"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_element_wavelenght", businessObject.Element_wavelenght);
-				sqlCommand.Parameters["p_element_wavelenght"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_idl", businessObject.Idl);
 				sqlCommand.Parameters["p_idl"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_mdl", businessObject.Mdl);
-				sqlCommand.Parameters["p_mdl"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_axial", businessObject.Mdl_axial);
+				sqlCommand.Parameters["p_mdl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_radial", businessObject.Mdl_radial);
+				sqlCommand.Parameters["p_mdl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ldr", businessObject.Ldr);
 				sqlCommand.Parameters["p_ldr"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ldr_aux", businessObject.Ldr_aux);
@@ -75,6 +75,10 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_ipc"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfb", businessObject.Lfb);
 				sqlCommand.Parameters["p_lfb"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_qc", businessObject.Qc);
+				sqlCommand.Parameters["p_qc"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_priority", businessObject.Priority);
+				sqlCommand.Parameters["p_priority"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfm", businessObject.Lfm);
 				sqlCommand.Parameters["p_lfm"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_limit_top", businessObject.Limit_top);
@@ -130,16 +134,16 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idtemplate_method_icp_detail"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idelement_wavelength", businessObject.Idelement_wavelength);
+				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
 				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_wavelenght", businessObject.Wavelenght);
-				sqlCommand.Parameters["p_wavelenght"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_element_wavelenght", businessObject.Element_wavelenght);
-				sqlCommand.Parameters["p_element_wavelenght"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_idl", businessObject.Idl);
 				sqlCommand.Parameters["p_idl"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_mdl", businessObject.Mdl);
-				sqlCommand.Parameters["p_mdl"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_axial", businessObject.Mdl_axial);
+				sqlCommand.Parameters["p_mdl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_mdl_radial", businessObject.Mdl_radial);
+				sqlCommand.Parameters["p_mdl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ldr", businessObject.Ldr);
 				sqlCommand.Parameters["p_ldr"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_ldr_aux", businessObject.Ldr_aux);
@@ -154,6 +158,10 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_ipc"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfb", businessObject.Lfb);
 				sqlCommand.Parameters["p_lfb"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_qc", businessObject.Qc);
+				sqlCommand.Parameters["p_qc"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_priority", businessObject.Priority);
+				sqlCommand.Parameters["p_priority"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_lfm", businessObject.Lfm);
 				sqlCommand.Parameters["p_lfm"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_limit_top", businessObject.Limit_top);
@@ -441,19 +449,14 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idtemplate_method.ToString()));
 				}
 
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idelement_wavelength.ToString())))
+				{
+					businessObject.Idelement_wavelength = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idelement_wavelength.ToString()));
+				}
+
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idelement.ToString())))
 				{
 					businessObject.Idelement = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idelement.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Wavelenght.ToString())))
-				{
-					businessObject.Wavelenght = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Wavelenght.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Element_wavelenght.ToString())))
-				{
-					businessObject.Element_wavelenght = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Element_wavelenght.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idl.ToString())))
@@ -461,9 +464,14 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Idl = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Idl.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl_axial.ToString())))
 				{
-					businessObject.Mdl = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl.ToString()));
+					businessObject.Mdl_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl_axial.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl_radial.ToString())))
+				{
+					businessObject.Mdl_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Mdl_radial.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Ldr.ToString())))
@@ -499,6 +507,16 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Lfb.ToString())))
 				{
 					businessObject.Lfb = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Lfb.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Qc.ToString())))
+				{
+					businessObject.Qc = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Qc.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Priority.ToString())))
+				{
+					businessObject.Priority = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Priority.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_icp_detail.CTemplate_method_icp_detailFields.Lfm.ToString())))

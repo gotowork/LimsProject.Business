@@ -132,13 +132,13 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters.AddWithValue("p_observation2", businessObject.Observation2);
 				sqlCommand.Parameters["p_observation2"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_final_weight_gross", businessObject.Final_weight_gross);
-				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_moisture", businessObject.Final_moisture);
-				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_reject", businessObject.Final_reject);
-				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_sample_prepared", businessObject.Final_sample_prepared);
-				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Integer;
 
 								
 				MainConnection.Open();
@@ -262,13 +262,13 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters.AddWithValue("p_observation2", businessObject.Observation2);
 				sqlCommand.Parameters["p_observation2"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_final_weight_gross", businessObject.Final_weight_gross);
-				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_weight_gross"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_moisture", businessObject.Final_moisture);
-				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_moisture"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_reject", businessObject.Final_reject);
-				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_reject"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_final_sample_prepared", businessObject.Final_sample_prepared);
-				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters["p_final_sample_prepared"].NpgsqlDbType = NpgsqlDbType.Integer;
 
                 
                 MainConnection.Open();
@@ -749,22 +749,22 @@ namespace LimsProject.BusinessLayer.DataLayer
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_weight_gross.ToString())))
 				{
-					businessObject.Final_weight_gross = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_weight_gross.ToString()));
+					businessObject.Final_weight_gross = dataReader.GetInt32(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_weight_gross.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_moisture.ToString())))
 				{
-					businessObject.Final_moisture = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_moisture.ToString()));
+					businessObject.Final_moisture = dataReader.GetInt32(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_moisture.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_reject.ToString())))
 				{
-					businessObject.Final_reject = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_reject.ToString()));
+					businessObject.Final_reject = dataReader.GetInt32(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_reject.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_sample_prepared.ToString())))
 				{
-					businessObject.Final_sample_prepared = dataReader.GetBoolean(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_sample_prepared.ToString()));
+					businessObject.Final_sample_prepared = dataReader.GetInt32(dataReader.GetOrdinal(CPrep_samples.CPrep_samplesFields.Final_sample_prepared.ToString()));
 				}
 
 

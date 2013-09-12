@@ -11,11 +11,11 @@ namespace LimsProject.BusinessLayer
 		{
 			Idtemplate_method_icp_detail,
 			Idtemplate_method,
+			Idelement_wavelength,
 			Idelement,
-			Wavelenght,
-			Element_wavelenght,
 			Idl,
-			Mdl,
+			Mdl_axial,
+			Mdl_radial,
 			Ldr,
 			Ldr_aux,
 			Num_decimal,
@@ -23,6 +23,8 @@ namespace LimsProject.BusinessLayer
 			Std2,
 			Ipc,
 			Lfb,
+			Qc,
+			Priority,
 			Lfm,
 			Limit_top,
 			Usernew,
@@ -37,11 +39,11 @@ namespace LimsProject.BusinessLayer
 
 			int _idtemplate_method_icp_detail;
 			int? _idtemplate_method;
+			int? _idelement_wavelength;
 			short? _idelement;
-			int? _wavelenght;
-			string _element_wavelenght;
 			decimal? _idl;
-			decimal? _mdl;
+			decimal? _mdl_axial;
+			decimal? _mdl_radial;
 			decimal? _ldr;
 			decimal? _ldr_aux;
 			decimal? _num_decimal;
@@ -49,6 +51,8 @@ namespace LimsProject.BusinessLayer
 			decimal? _std2;
 			decimal? _ipc;
 			decimal? _lfb;
+			decimal? _qc;
+			decimal? _priority;
 			decimal? _lfm;
 			decimal? _limit_top;
 			string _usernew;
@@ -87,6 +91,19 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public int?  Idelement_wavelength
+		{
+			 get { return _idelement_wavelength; }
+			 set
+			 {
+				 if (_idelement_wavelength != value)
+				 {
+					_idelement_wavelength = value;
+					 PropertyHasChanged("Idelement_wavelength");
+				 }
+			 }
+		}
+
 		public short?  Idelement
 		{
 			 get { return _idelement; }
@@ -96,32 +113,6 @@ namespace LimsProject.BusinessLayer
 				 {
 					_idelement = value;
 					 PropertyHasChanged("Idelement");
-				 }
-			 }
-		}
-
-		public int?  Wavelenght
-		{
-			 get { return _wavelenght; }
-			 set
-			 {
-				 if (_wavelenght != value)
-				 {
-					_wavelenght = value;
-					 PropertyHasChanged("Wavelenght");
-				 }
-			 }
-		}
-
-		public string  Element_wavelenght
-		{
-			 get { return _element_wavelenght; }
-			 set
-			 {
-				 if (_element_wavelenght != value)
-				 {
-					_element_wavelenght = value;
-					 PropertyHasChanged("Element_wavelenght");
 				 }
 			 }
 		}
@@ -139,15 +130,28 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public decimal?  Mdl
+		public decimal?  Mdl_axial
 		{
-			 get { return _mdl; }
+			 get { return _mdl_axial; }
 			 set
 			 {
-				 if (_mdl != value)
+				 if (_mdl_axial != value)
 				 {
-					_mdl = value;
-					 PropertyHasChanged("Mdl");
+					_mdl_axial = value;
+					 PropertyHasChanged("Mdl_axial");
+				 }
+			 }
+		}
+
+		public decimal?  Mdl_radial
+		{
+			 get { return _mdl_radial; }
+			 set
+			 {
+				 if (_mdl_radial != value)
+				 {
+					_mdl_radial = value;
+					 PropertyHasChanged("Mdl_radial");
 				 }
 			 }
 		}
@@ -239,6 +243,32 @@ namespace LimsProject.BusinessLayer
 				 {
 					_lfb = value;
 					 PropertyHasChanged("Lfb");
+				 }
+			 }
+		}
+
+		public decimal?  Qc
+		{
+			 get { return _qc; }
+			 set
+			 {
+				 if (_qc != value)
+				 {
+					_qc = value;
+					 PropertyHasChanged("Qc");
+				 }
+			 }
+		}
+
+		public decimal?  Priority
+		{
+			 get { return _priority; }
+			 set
+			 {
+				 if (_priority != value)
+				 {
+					_priority = value;
+					 PropertyHasChanged("Priority");
 				 }
 			 }
 		}
@@ -342,7 +372,6 @@ namespace LimsProject.BusinessLayer
 		internal override void AddValidationRules()
 		{
 			ValidationRules.AddRules(new Validation.ValidateRuleNotNull("Idtemplate_method_icp_detail", "Idtemplate_method_icp_detail"));
-			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Element_wavelenght", "Element_wavelenght",6));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
 		}

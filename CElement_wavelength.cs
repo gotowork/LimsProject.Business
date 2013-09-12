@@ -11,19 +11,13 @@ namespace LimsProject.BusinessLayer
 		{
 			Idelement_wavelength,
 			Idelement,
-			Wavelength,
+			Elem_wavelength,
 			Lineorder,
 			Plasmaview,
 			Idl_axial,
 			Idl_radial,
 			Lineality_axial,
 			Lineality_radial,
-			Mdl_axial,
-			Mdl_radial,
-			Ipc,
-			Lfb,
-			Qc,
-			Priority,
 			Usernew,
 			Datenew,
 			Useredit,
@@ -36,19 +30,13 @@ namespace LimsProject.BusinessLayer
 
 			int _idelement_wavelength;
 			short? _idelement;
-			string _wavelength;
+			string _elem_wavelength;
 			short? _lineorder;
 			short? _plasmaview;
 			decimal? _idl_axial;
 			decimal? _idl_radial;
 			decimal? _lineality_axial;
 			decimal? _lineality_radial;
-			decimal? _mdl_axial;
-			decimal? _mdl_radial;
-			decimal? _ipc;
-			decimal? _lfb;
-			decimal? _qc;
-			decimal? _priority;
 			string _usernew;
 			DateTime? _datenew;
 			string _useredit;
@@ -85,15 +73,15 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public string  Wavelength
+		public string  Elem_wavelength
 		{
-			 get { return _wavelength; }
+			 get { return _elem_wavelength; }
 			 set
 			 {
-				 if (_wavelength != value)
+				 if (_elem_wavelength != value)
 				 {
-					_wavelength = value;
-					 PropertyHasChanged("Wavelength");
+					_elem_wavelength = value;
+					 PropertyHasChanged("Elem_wavelength");
 				 }
 			 }
 		}
@@ -176,84 +164,6 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public decimal?  Mdl_axial
-		{
-			 get { return _mdl_axial; }
-			 set
-			 {
-				 if (_mdl_axial != value)
-				 {
-					_mdl_axial = value;
-					 PropertyHasChanged("Mdl_axial");
-				 }
-			 }
-		}
-
-		public decimal?  Mdl_radial
-		{
-			 get { return _mdl_radial; }
-			 set
-			 {
-				 if (_mdl_radial != value)
-				 {
-					_mdl_radial = value;
-					 PropertyHasChanged("Mdl_radial");
-				 }
-			 }
-		}
-
-		public decimal?  Ipc
-		{
-			 get { return _ipc; }
-			 set
-			 {
-				 if (_ipc != value)
-				 {
-					_ipc = value;
-					 PropertyHasChanged("Ipc");
-				 }
-			 }
-		}
-
-		public decimal?  Lfb
-		{
-			 get { return _lfb; }
-			 set
-			 {
-				 if (_lfb != value)
-				 {
-					_lfb = value;
-					 PropertyHasChanged("Lfb");
-				 }
-			 }
-		}
-
-		public decimal?  Qc
-		{
-			 get { return _qc; }
-			 set
-			 {
-				 if (_qc != value)
-				 {
-					_qc = value;
-					 PropertyHasChanged("Qc");
-				 }
-			 }
-		}
-
-		public decimal?  Priority
-		{
-			 get { return _priority; }
-			 set
-			 {
-				 if (_priority != value)
-				 {
-					_priority = value;
-					 PropertyHasChanged("Priority");
-				 }
-			 }
-		}
-
 		public string  Usernew
 		{
 			 get { return _usernew; }
@@ -327,7 +237,7 @@ namespace LimsProject.BusinessLayer
 		internal override void AddValidationRules()
 		{
 			ValidationRules.AddRules(new Validation.ValidateRuleNotNull("Idelement_wavelength", "Idelement_wavelength"));
-			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Wavelength", "Wavelength",8));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Elem_wavelength", "Elem_wavelength",8));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
 		}

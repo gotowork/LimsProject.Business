@@ -104,10 +104,10 @@ namespace LimsProject.BusinessLayer
 			DateTime? _store_output_date_re;
 			string _store_output_user_re;
 			string _observation2;
-			bool? _final_weight_gross;
-			bool? _final_moisture;
-			bool? _final_reject;
-			bool? _final_sample_prepared;
+			int? _final_weight_gross;
+			int? _final_moisture;
+			int? _final_reject;
+			int? _final_sample_prepared;
 
 		#endregion
 
@@ -672,7 +672,7 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public bool?  Final_weight_gross
+		public int?  Final_weight_gross
 		{
 			 get { return _final_weight_gross; }
 			 set
@@ -685,7 +685,7 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public bool?  Final_moisture
+		public int?  Final_moisture
 		{
 			 get { return _final_moisture; }
 			 set
@@ -698,7 +698,7 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public bool?  Final_reject
+		public int?  Final_reject
 		{
 			 get { return _final_reject; }
 			 set
@@ -711,7 +711,7 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public bool?  Final_sample_prepared
+		public int?  Final_sample_prepared
 		{
 			 get { return _final_sample_prepared; }
 			 set
