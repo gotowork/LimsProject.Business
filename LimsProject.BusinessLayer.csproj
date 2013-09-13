@@ -61,6 +61,9 @@
     <Compile Include="CBatch_result_aa_qaqc.cs" />
     <Compile Include="CBatch_result_aa_qaqcFactory.cs" />
     <Compile Include="CBatch_result_aa_qaqcKeys.cs" />
+    <Compile Include="CCompound.cs" />
+    <Compile Include="CCompoundFactory.cs" />
+    <Compile Include="CCompoundKeys.cs" />
     <Compile Include="CControl_sample.cs" />
     <Compile Include="CControl_sampleFactory.cs" />
     <Compile Include="CControl_sampleKeys.cs" />
@@ -85,6 +88,9 @@
     <Compile Include="CElement_wavelength.cs" />
     <Compile Include="CElement_wavelengthFactory.cs" />
     <Compile Include="CElement_wavelengthKeys.cs" />
+    <Compile Include="CFactor_estequiometrico.cs" />
+    <Compile Include="CFactor_estequiometricoFactory.cs" />
+    <Compile Include="CFactor_estequiometricoKeys.cs" />
     <Compile Include="CIcpimport.cs" />
     <Compile Include="CIcpimportFactory.cs" />
     <Compile Include="CIcpimportKeys.cs" />
@@ -131,6 +137,7 @@
     <Compile Include="CType_sample_controlFactory.cs" />
     <Compile Include="CType_sample_controlKeys.cs" />
     <Compile Include="DataLayer\CBatchicpSql.cs" />
+    <Compile Include="DataLayer\CCompoundSql.cs" />
     <Compile Include="DataLayer\CControl_sampleSql.cs" />
     <Compile Include="DataLayer\CControl_sample_conditionSql.cs" />
     <Compile Include="DataLayer\CControl_sample_frequencySql.cs" />
@@ -139,6 +146,7 @@
     <Compile Include="DataLayer\CDestiny_samplesSql.cs" />
     <Compile Include="DataLayer\CDestiny_sample_recepSql.cs" />
     <Compile Include="DataLayer\CElement_wavelengthSql.cs" />
+    <Compile Include="DataLayer\CFactor_estequiometricoSql.cs" />
     <Compile Include="DataLayer\CIcpimportSql.cs" />
     <Compile Include="DataLayer\CMatrix_groupSql.cs" />
     <Compile Include="DataLayer\CMatrix_itemSql.cs" />

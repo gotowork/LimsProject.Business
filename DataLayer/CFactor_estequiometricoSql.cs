@@ -9,9 +9,9 @@ using NpgsqlTypes;
 namespace LimsProject.BusinessLayer.DataLayer
 {
 	/// <summary>
-	/// Data access layer class for CElement_wavelength
+	/// Data access layer class for CFactor_estequiometrico
 	/// </summary>
-	partial class CElement_wavelengthSql : DataLayerBase 
+	partial class CFactor_estequiometricoSql : DataLayerBase 
 	{
 
         #region Constructor
@@ -19,7 +19,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 		/// <summary>
 		/// Class constructor
 		/// </summary>
-		public CElement_wavelengthSql()
+		public CFactor_estequiometricoSql()
 		{
 			// Nothing for now.
 		}
@@ -33,10 +33,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
 		/// <param name="businessObject">business object</param>
 		/// <returns>true of successfully insert</returns>
-		public bool Insert(CElement_wavelength businessObject)
+		public bool Insert(CFactor_estequiometrico businessObject)
 		{
 			NpgsqlCommand	sqlCommand = new NpgsqlCommand();
-			sqlCommand.CommandText = "public.sp_element_wavelength_Insert";
+			sqlCommand.CommandText = "public.sp_factor_estequiometrico_Insert";
 			sqlCommand.CommandType = CommandType.StoredProcedure;
 
 			// Use connection object of base class
@@ -45,32 +45,24 @@ namespace LimsProject.BusinessLayer.DataLayer
 			try
 			{
                 
-				sqlCommand.Parameters.AddWithValue("p_idelement_wavelength", businessObject.Idelement_wavelength);
-				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters["p_idelement_wavelength"].Direction = ParameterDirection.InputOutput;
+				sqlCommand.Parameters.AddWithValue("p_idfactor_estequiometrico", businessObject.Idfactor_estequiometrico);
+				sqlCommand.Parameters["p_idfactor_estequiometrico"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters["p_idfactor_estequiometrico"].Direction = ParameterDirection.InputOutput;
 
+				sqlCommand.Parameters.AddWithValue("p_idcompound", businessObject.Idcompound);
+				sqlCommand.Parameters["p_idcompound"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
-				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_wavelength", businessObject.Wavelength);
-				sqlCommand.Parameters["p_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
-				sqlCommand.Parameters.AddWithValue("p_element_wavelength", businessObject.Element_wavelength);
-				sqlCommand.Parameters["p_element_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
-				sqlCommand.Parameters.AddWithValue("p_idl_axial", businessObject.Idl_axial);
-				sqlCommand.Parameters["p_idl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_idl_radial", businessObject.Idl_radial);
-				sqlCommand.Parameters["p_idl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_lineality_axial", businessObject.Lineality_axial);
-				sqlCommand.Parameters["p_lineality_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_lineality_radial", businessObject.Lineality_radial);
-				sqlCommand.Parameters["p_lineality_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_factor", businessObject.Factor);
+				sqlCommand.Parameters["p_factor"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
 				sqlCommand.Parameters["p_usernew"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datenew", businessObject.Datenew);
-				sqlCommand.Parameters["p_datenew"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_datenew"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_useredit", businessObject.Useredit);
 				sqlCommand.Parameters["p_useredit"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_dateedit", businessObject.Dateedit);
-				sqlCommand.Parameters["p_dateedit"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_dateedit"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_status", businessObject.Status);
 				sqlCommand.Parameters["p_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
@@ -78,13 +70,13 @@ namespace LimsProject.BusinessLayer.DataLayer
 				MainConnection.Open();
 				
 				sqlCommand.ExecuteNonQuery();
-                businessObject.Idelement_wavelength = Convert.ToInt32(sqlCommand.Parameters["p_idelement_wavelength"].Value);
+                businessObject.Idfactor_estequiometrico = Convert.ToInt32(sqlCommand.Parameters["p_idfactor_estequiometrico"].Value);
 
 				return true;
 			}
 			catch(Exception ex)
 			{				
-				throw new Exception("CElement_wavelength::Insert::Error occured.", ex);
+				throw new Exception("CFactor_estequiometrico::Insert::Error occured.", ex);
 			}
 			finally
 			{			
@@ -98,10 +90,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="businessObject">business object</param>
         /// <returns>true for successfully updated</returns>
-        public bool Update(CElement_wavelength businessObject)
+        public bool Update(CFactor_estequiometrico businessObject)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_Update";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_Update";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -110,30 +102,22 @@ namespace LimsProject.BusinessLayer.DataLayer
             try
             {
                 
-				sqlCommand.Parameters.AddWithValue("p_idelement_wavelength", businessObject.Idelement_wavelength);
-				sqlCommand.Parameters["p_idelement_wavelength"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idfactor_estequiometrico", businessObject.Idfactor_estequiometrico);
+				sqlCommand.Parameters["p_idfactor_estequiometrico"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idcompound", businessObject.Idcompound);
+				sqlCommand.Parameters["p_idcompound"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
-				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_wavelength", businessObject.Wavelength);
-				sqlCommand.Parameters["p_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
-				sqlCommand.Parameters.AddWithValue("p_element_wavelength", businessObject.Element_wavelength);
-				sqlCommand.Parameters["p_element_wavelength"].NpgsqlDbType = NpgsqlDbType.Varchar;
-				sqlCommand.Parameters.AddWithValue("p_idl_axial", businessObject.Idl_axial);
-				sqlCommand.Parameters["p_idl_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_idl_radial", businessObject.Idl_radial);
-				sqlCommand.Parameters["p_idl_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_lineality_axial", businessObject.Lineality_axial);
-				sqlCommand.Parameters["p_lineality_axial"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_lineality_radial", businessObject.Lineality_radial);
-				sqlCommand.Parameters["p_lineality_radial"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_factor", businessObject.Factor);
+				sqlCommand.Parameters["p_factor"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
 				sqlCommand.Parameters["p_usernew"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datenew", businessObject.Datenew);
-				sqlCommand.Parameters["p_datenew"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_datenew"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_useredit", businessObject.Useredit);
 				sqlCommand.Parameters["p_useredit"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_dateedit", businessObject.Dateedit);
-				sqlCommand.Parameters["p_dateedit"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters["p_dateedit"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_status", businessObject.Status);
 				sqlCommand.Parameters["p_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
@@ -146,7 +130,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CElement_wavelength::Update::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::Update::Error occured.", ex);
             }
             finally
             {
@@ -159,11 +143,11 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// Select by primary key
         /// </summary>
         /// <param name="keys">primary keys</param>
-        /// <returns>CElement_wavelength business object</returns>
-        public CElement_wavelength SelectByPrimaryKey(CElement_wavelengthKeys keys)
+        /// <returns>CFactor_estequiometrico business object</returns>
+        public CFactor_estequiometrico SelectByPrimaryKey(CFactor_estequiometricoKeys keys)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_SelectByPrimaryKey";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_SelectByPrimaryKey";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -172,7 +156,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             try
             {
 
-				sqlCommand.Parameters.Add(new NpgsqlParameter("p_idelement_wavelength", NpgsqlDbType.Integer, 4, "", ParameterDirection.Input, false, 0, 0, DataRowVersion.Proposed, keys.Idelement_wavelength));
+				sqlCommand.Parameters.Add(new NpgsqlParameter("p_idfactor_estequiometrico", NpgsqlDbType.Integer, 4, "", ParameterDirection.Input, false, 0, 0, DataRowVersion.Proposed, keys.Idfactor_estequiometrico));
 
                 
                 MainConnection.Open();
@@ -181,7 +165,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 
                 if (dataReader.Read())
                 {
-                    CElement_wavelength businessObject = new CElement_wavelength();
+                    CFactor_estequiometrico businessObject = new CFactor_estequiometrico();
 
                     PopulateBusinessObjectFromReader(businessObject, dataReader);
 
@@ -194,7 +178,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CElement_wavelength::SelectByPrimaryKey::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::SelectByPrimaryKey::Error occured.", ex);
             }
             finally
             {             
@@ -207,11 +191,11 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// <summary>
         /// Select all rescords
         /// </summary>
-        /// <returns>list of CElement_wavelength</returns>
-        public List<CElement_wavelength> SelectAll()
+        /// <returns>list of CFactor_estequiometrico</returns>
+        public List<CFactor_estequiometrico> SelectAll()
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_SelectAll";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_SelectAll";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -229,7 +213,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {                
-                throw new Exception("CElement_wavelength::SelectAll::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::SelectAll::Error occured.", ex);
             }
             finally
             {
@@ -244,7 +228,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             
             DataTable dt = new DataTable();
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_SelectAll";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_SelectAll";
             sqlCommand.CommandType = CommandType.StoredProcedure;                        
             sqlCommand.Connection = MainConnection;
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sqlCommand);
@@ -259,7 +243,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CElement_wavelength::SelectAll::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::SelectAll::Error occured.", ex);
             }
             finally
             {
@@ -274,12 +258,12 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="fieldName">name of field</param>
         /// <param name="value">value of field</param>
-        /// <returns>list of CElement_wavelength</returns>
-        public List<CElement_wavelength> SelectByField(string fieldName, object value)
+        /// <returns>list of CFactor_estequiometrico</returns>
+        public List<CFactor_estequiometrico> SelectByField(string fieldName, object value)
         {
 
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_SelectByField";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_SelectByField";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -300,7 +284,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CElement_wavelength::SelectByField::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::SelectByField::Error occured.", ex);
             }
             finally
             {
@@ -316,10 +300,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="keys">primary keys</param>
         /// <returns>true for successfully deleted</returns>
-        public bool Delete(CElement_wavelengthKeys keys)
+        public bool Delete(CFactor_estequiometricoKeys keys)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_DeleteByPrimaryKey";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_DeleteByPrimaryKey";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -328,7 +312,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             try
             {
 
-				sqlCommand.Parameters.Add(new NpgsqlParameter("p_idelement_wavelength", NpgsqlDbType.Integer, 4, "", ParameterDirection.Input, false, 0, 0, DataRowVersion.Proposed, keys.Idelement_wavelength));
+				sqlCommand.Parameters.Add(new NpgsqlParameter("p_idfactor_estequiometrico", NpgsqlDbType.Integer, 4, "", ParameterDirection.Input, false, 0, 0, DataRowVersion.Proposed, keys.Idfactor_estequiometrico));
 
 
                 MainConnection.Open();
@@ -339,7 +323,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CElement_wavelength::DeleteByKey::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::DeleteByKey::Error occured.", ex);
             }
             finally
             {                
@@ -358,7 +342,7 @@ namespace LimsProject.BusinessLayer.DataLayer
         public bool DeleteByField(string fieldName, object value)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_element_wavelength_DeleteByField";
+            sqlCommand.CommandText = "public.sp_factor_estequiometrico_DeleteByField";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -379,7 +363,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {                
-                throw new Exception("CElement_wavelength::DeleteByField::Error occured.", ex);
+                throw new Exception("CFactor_estequiometrico::DeleteByField::Error occured.", ex);
             }
             finally
             {             
@@ -398,70 +382,50 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="businessObject">business object</param>
         /// <param name="dataReader">data reader</param>
-        internal void PopulateBusinessObjectFromReader(CElement_wavelength businessObject, IDataReader dataReader)
+        internal void PopulateBusinessObjectFromReader(CFactor_estequiometrico businessObject, IDataReader dataReader)
         {
 
 
-				businessObject.Idelement_wavelength = dataReader.GetInt32(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement_wavelength.ToString()));
+				businessObject.Idfactor_estequiometrico = dataReader.GetInt32(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Idfactor_estequiometrico.ToString()));
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Idcompound.ToString())))
 				{
-					businessObject.Idelement = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idelement.ToString()));
+					businessObject.Idcompound = dataReader.GetInt32(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Idcompound.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Wavelength.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Idelement.ToString())))
 				{
-					businessObject.Wavelength = dataReader.GetString(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Wavelength.ToString()));
+					businessObject.Idelement = dataReader.GetInt32(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Idelement.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Element_wavelength.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Factor.ToString())))
 				{
-					businessObject.Element_wavelength = dataReader.GetString(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Element_wavelength.ToString()));
+					businessObject.Factor = dataReader.GetDecimal(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Factor.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_axial.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Usernew.ToString())))
 				{
-					businessObject.Idl_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_axial.ToString()));
+					businessObject.Usernew = dataReader.GetString(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Usernew.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_radial.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Datenew.ToString())))
 				{
-					businessObject.Idl_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Idl_radial.ToString()));
+					businessObject.Datenew = dataReader.GetDateTime(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Datenew.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_axial.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Useredit.ToString())))
 				{
-					businessObject.Lineality_axial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_axial.ToString()));
+					businessObject.Useredit = dataReader.GetString(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Useredit.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_radial.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Dateedit.ToString())))
 				{
-					businessObject.Lineality_radial = dataReader.GetDecimal(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Lineality_radial.ToString()));
+					businessObject.Dateedit = dataReader.GetDateTime(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Dateedit.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Usernew.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Status.ToString())))
 				{
-					businessObject.Usernew = dataReader.GetString(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Usernew.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Datenew.ToString())))
-				{
-					businessObject.Datenew = dataReader.GetDateTime(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Datenew.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Useredit.ToString())))
-				{
-					businessObject.Useredit = dataReader.GetString(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Useredit.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Dateedit.ToString())))
-				{
-					businessObject.Dateedit = dataReader.GetDateTime(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Dateedit.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Status.ToString())))
-				{
-					businessObject.Status = dataReader.GetBoolean(dataReader.GetOrdinal(CElement_wavelength.CElement_wavelengthFields.Status.ToString()));
+					businessObject.Status = dataReader.GetBoolean(dataReader.GetOrdinal(CFactor_estequiometrico.CFactor_estequiometricoFields.Status.ToString()));
 				}
 
 
@@ -471,15 +435,15 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// Populate business objects from the data reader
         /// </summary>
         /// <param name="dataReader">data reader</param>
-        /// <returns>list of CElement_wavelength</returns>
-        internal List<CElement_wavelength> PopulateObjectsFromReader(IDataReader dataReader)
+        /// <returns>list of CFactor_estequiometrico</returns>
+        internal List<CFactor_estequiometrico> PopulateObjectsFromReader(IDataReader dataReader)
         {
 
-            List<CElement_wavelength> list = new List<CElement_wavelength>();
+            List<CFactor_estequiometrico> list = new List<CFactor_estequiometrico>();
 
             while (dataReader.Read())
             {
-                CElement_wavelength businessObject = new CElement_wavelength();
+                CFactor_estequiometrico businessObject = new CFactor_estequiometrico();
                 PopulateBusinessObjectFromReader(businessObject, dataReader);
                 list.Add(businessObject);
             }

@@ -67,6 +67,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_law_limit_top"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_num_decimal", businessObject.Num_decimal);
 				sqlCommand.Parameters["p_num_decimal"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_flag_mr", businessObject.Flag_mr);
+				sqlCommand.Parameters["p_flag_mr"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
 				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_mr_incertitude", businessObject.Mr_incertitude);
@@ -75,6 +77,22 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_blk_max"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_reproducibility", businessObject.Reproducibility);
 				sqlCommand.Parameters["p_reproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_flagsamfortify", businessObject.Flagsamfortify);
+				sqlCommand.Parameters["p_flagsamfortify"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_samfortisol", businessObject.Samfortisol);
+				sqlCommand.Parameters["p_samfortisol"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_samfortialiquot", businessObject.Samfortialiquot);
+				sqlCommand.Parameters["p_samfortialiquot"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_samfortireproducibility", businessObject.Samfortireproducibility);
+				sqlCommand.Parameters["p_samfortireproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_flagblkfortify", businessObject.Flagblkfortify);
+				sqlCommand.Parameters["p_flagblkfortify"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_blkfortisol", businessObject.Blkfortisol);
+				sqlCommand.Parameters["p_blkfortisol"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_blkfortialiquot", businessObject.Blkfortialiquot);
+				sqlCommand.Parameters["p_blkfortialiquot"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_blkfortireproducibility", businessObject.Blkfortireproducibility);
+				sqlCommand.Parameters["p_blkfortireproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_date_allowed_error", businessObject.Date_allowed_error);
 				sqlCommand.Parameters["p_date_allowed_error"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_idunit_result", businessObject.Idunit_result);
@@ -153,6 +171,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_law_limit_top"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_num_decimal", businessObject.Num_decimal);
 				sqlCommand.Parameters["p_num_decimal"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_flag_mr", businessObject.Flag_mr);
+				sqlCommand.Parameters["p_flag_mr"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
 				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_mr_incertitude", businessObject.Mr_incertitude);
@@ -161,6 +181,22 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_blk_max"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_reproducibility", businessObject.Reproducibility);
 				sqlCommand.Parameters["p_reproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_flagsamfortify", businessObject.Flagsamfortify);
+				sqlCommand.Parameters["p_flagsamfortify"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_samfortisol", businessObject.Samfortisol);
+				sqlCommand.Parameters["p_samfortisol"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_samfortialiquot", businessObject.Samfortialiquot);
+				sqlCommand.Parameters["p_samfortialiquot"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_samfortireproducibility", businessObject.Samfortireproducibility);
+				sqlCommand.Parameters["p_samfortireproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_flagblkfortify", businessObject.Flagblkfortify);
+				sqlCommand.Parameters["p_flagblkfortify"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_blkfortisol", businessObject.Blkfortisol);
+				sqlCommand.Parameters["p_blkfortisol"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_blkfortialiquot", businessObject.Blkfortialiquot);
+				sqlCommand.Parameters["p_blkfortialiquot"].NpgsqlDbType = NpgsqlDbType.Numeric;
+				sqlCommand.Parameters.AddWithValue("p_blkfortireproducibility", businessObject.Blkfortireproducibility);
+				sqlCommand.Parameters["p_blkfortireproducibility"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_date_allowed_error", businessObject.Date_allowed_error);
 				sqlCommand.Parameters["p_date_allowed_error"].NpgsqlDbType = NpgsqlDbType.Date;
 				sqlCommand.Parameters.AddWithValue("p_idunit_result", businessObject.Idunit_result);
@@ -499,6 +535,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Num_decimal = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_decimal.ToString()));
 				}
 
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flag_mr.ToString())))
+				{
+					businessObject.Flag_mr = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flag_mr.ToString()));
+				}
+
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idmr_detail.ToString())))
 				{
 					businessObject.Idmr_detail = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idmr_detail.ToString()));
@@ -517,6 +558,46 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reproducibility.ToString())))
 				{
 					businessObject.Reproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reproducibility.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagsamfortify.ToString())))
+				{
+					businessObject.Flagsamfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagsamfortify.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortisol.ToString())))
+				{
+					businessObject.Samfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortisol.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortialiquot.ToString())))
+				{
+					businessObject.Samfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortialiquot.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortireproducibility.ToString())))
+				{
+					businessObject.Samfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortireproducibility.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagblkfortify.ToString())))
+				{
+					businessObject.Flagblkfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagblkfortify.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortisol.ToString())))
+				{
+					businessObject.Blkfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortisol.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortialiquot.ToString())))
+				{
+					businessObject.Blkfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortialiquot.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortireproducibility.ToString())))
+				{
+					businessObject.Blkfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortireproducibility.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Date_allowed_error.ToString())))

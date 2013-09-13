@@ -43,5 +43,16 @@ namespace LimsProject.BusinessLayer.Modules
 
             return namedDB.ExecuteDataSet(CommandType.Text, string.Format(sql.ToString(), dateIni, dateEnd, pMethod, pSamplesSelected)).Tables[0];
         }
+
+        public DataTable GetElements(string element)
+        {
+            StringBuilder sql = new StringBuilder("spFindIcpElements @element={0}");
+            if (element == null)
+                sql = new StringBuilder("spFindIcpElements @element=null");
+            else
+                sql = new StringBuilder(string.Format("spFindIcpElements @element='{0}'", element));            
+
+            return namedDB.ExecuteDataSet(CommandType.Text, sql.ToString()).Tables[0];
+        }
     }
 }

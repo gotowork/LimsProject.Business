@@ -11,9 +11,8 @@ namespace LimsProject.BusinessLayer
 		{
 			Idelement_wavelength,
 			Idelement,
-			Elem_wavelength,
-			Lineorder,
-			Plasmaview,
+			Wavelength,
+			Element_wavelength,
 			Idl_axial,
 			Idl_radial,
 			Lineality_axial,
@@ -30,9 +29,8 @@ namespace LimsProject.BusinessLayer
 
 			int _idelement_wavelength;
 			short? _idelement;
-			string _elem_wavelength;
-			short? _lineorder;
-			short? _plasmaview;
+			string _wavelength;
+			string _element_wavelength;
 			decimal? _idl_axial;
 			decimal? _idl_radial;
 			decimal? _lineality_axial;
@@ -73,41 +71,28 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public string  Elem_wavelength
+		public string  Wavelength
 		{
-			 get { return _elem_wavelength; }
+			 get { return _wavelength; }
 			 set
 			 {
-				 if (_elem_wavelength != value)
+				 if (_wavelength != value)
 				 {
-					_elem_wavelength = value;
-					 PropertyHasChanged("Elem_wavelength");
+					_wavelength = value;
+					 PropertyHasChanged("Wavelength");
 				 }
 			 }
 		}
 
-		public short?  Lineorder
+		public string  Element_wavelength
 		{
-			 get { return _lineorder; }
+			 get { return _element_wavelength; }
 			 set
 			 {
-				 if (_lineorder != value)
+				 if (_element_wavelength != value)
 				 {
-					_lineorder = value;
-					 PropertyHasChanged("Lineorder");
-				 }
-			 }
-		}
-
-		public short?  Plasmaview
-		{
-			 get { return _plasmaview; }
-			 set
-			 {
-				 if (_plasmaview != value)
-				 {
-					_plasmaview = value;
-					 PropertyHasChanged("Plasmaview");
+					_element_wavelength = value;
+					 PropertyHasChanged("Element_wavelength");
 				 }
 			 }
 		}
@@ -237,7 +222,8 @@ namespace LimsProject.BusinessLayer
 		internal override void AddValidationRules()
 		{
 			ValidationRules.AddRules(new Validation.ValidateRuleNotNull("Idelement_wavelength", "Idelement_wavelength"));
-			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Elem_wavelength", "Elem_wavelength",8));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Wavelength", "Wavelength",8));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Element_wavelength", "Element_wavelength",25));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
 		}

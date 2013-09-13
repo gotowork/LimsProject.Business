@@ -20,10 +20,19 @@ namespace LimsProject.BusinessLayer
 			Law_limit_bottom,
 			Law_limit_top,
 			Num_decimal,
+			Flag_mr,
 			Idmr_detail,
 			Mr_incertitude,
 			Blk_max,
 			Reproducibility,
+			Flagsamfortify,
+			Samfortisol,
+			Samfortialiquot,
+			Samfortireproducibility,
+			Flagblkfortify,
+			Blkfortisol,
+			Blkfortialiquot,
+			Blkfortireproducibility,
 			Date_allowed_error,
 			Idunit_result,
 			Num_samples,
@@ -50,10 +59,19 @@ namespace LimsProject.BusinessLayer
 			decimal? _law_limit_bottom;
 			decimal? _law_limit_top;
 			short? _num_decimal;
+			bool? _flag_mr;
 			short? _idmr_detail;
 			decimal? _mr_incertitude;
 			decimal? _blk_max;
 			decimal? _reproducibility;
+			bool? _flagsamfortify;
+			decimal? _samfortisol;
+			decimal? _samfortialiquot;
+			decimal? _samfortireproducibility;
+			bool? _flagblkfortify;
+			decimal? _blkfortisol;
+			decimal? _blkfortialiquot;
+			decimal? _blkfortireproducibility;
 			DateTime? _date_allowed_error;
 			short? _idunit_result;
 			short? _num_samples;
@@ -212,6 +230,19 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public bool?  Flag_mr
+		{
+			 get { return _flag_mr; }
+			 set
+			 {
+				 if (_flag_mr != value)
+				 {
+					_flag_mr = value;
+					 PropertyHasChanged("Flag_mr");
+				 }
+			 }
+		}
+
 		public short?  Idmr_detail
 		{
 			 get { return _idmr_detail; }
@@ -260,6 +291,110 @@ namespace LimsProject.BusinessLayer
 				 {
 					_reproducibility = value;
 					 PropertyHasChanged("Reproducibility");
+				 }
+			 }
+		}
+
+		public bool?  Flagsamfortify
+		{
+			 get { return _flagsamfortify; }
+			 set
+			 {
+				 if (_flagsamfortify != value)
+				 {
+					_flagsamfortify = value;
+					 PropertyHasChanged("Flagsamfortify");
+				 }
+			 }
+		}
+
+		public decimal?  Samfortisol
+		{
+			 get { return _samfortisol; }
+			 set
+			 {
+				 if (_samfortisol != value)
+				 {
+					_samfortisol = value;
+					 PropertyHasChanged("Samfortisol");
+				 }
+			 }
+		}
+
+		public decimal?  Samfortialiquot
+		{
+			 get { return _samfortialiquot; }
+			 set
+			 {
+				 if (_samfortialiquot != value)
+				 {
+					_samfortialiquot = value;
+					 PropertyHasChanged("Samfortialiquot");
+				 }
+			 }
+		}
+
+		public decimal?  Samfortireproducibility
+		{
+			 get { return _samfortireproducibility; }
+			 set
+			 {
+				 if (_samfortireproducibility != value)
+				 {
+					_samfortireproducibility = value;
+					 PropertyHasChanged("Samfortireproducibility");
+				 }
+			 }
+		}
+
+		public bool?  Flagblkfortify
+		{
+			 get { return _flagblkfortify; }
+			 set
+			 {
+				 if (_flagblkfortify != value)
+				 {
+					_flagblkfortify = value;
+					 PropertyHasChanged("Flagblkfortify");
+				 }
+			 }
+		}
+
+		public decimal?  Blkfortisol
+		{
+			 get { return _blkfortisol; }
+			 set
+			 {
+				 if (_blkfortisol != value)
+				 {
+					_blkfortisol = value;
+					 PropertyHasChanged("Blkfortisol");
+				 }
+			 }
+		}
+
+		public decimal?  Blkfortialiquot
+		{
+			 get { return _blkfortialiquot; }
+			 set
+			 {
+				 if (_blkfortialiquot != value)
+				 {
+					_blkfortialiquot = value;
+					 PropertyHasChanged("Blkfortialiquot");
+				 }
+			 }
+		}
+
+		public decimal?  Blkfortireproducibility
+		{
+			 get { return _blkfortireproducibility; }
+			 set
+			 {
+				 if (_blkfortireproducibility != value)
+				 {
+					_blkfortireproducibility = value;
+					 PropertyHasChanged("Blkfortireproducibility");
 				 }
 			 }
 		}
