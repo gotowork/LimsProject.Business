@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 namespace LimsProject.BusinessLayer
 {
-	public class CTemplate_method_gr: BusinessObjectBase
+	public class CTemplate_method_vc: BusinessObjectBase
 	{
 
 		#region InnerClass
-		public enum CTemplate_method_grFields
+		public enum CTemplate_method_vcFields
 		{
 			Idtemplate_method,
 			Weight,
@@ -38,7 +38,6 @@ namespace LimsProject.BusinessLayer
 			Num_samples,
 			Num_days,
 			Limit_samples,
-			Idfactor_estequiometrico,
 			Usernew,
 			Datenew,
 			Useredit,
@@ -78,7 +77,6 @@ namespace LimsProject.BusinessLayer
 			short? _num_samples;
 			short? _num_days;
 			short? _limit_samples;
-			int? _idfactor_estequiometrico;
 			string _usernew;
 			DateTime? _datenew;
 			string _useredit;
@@ -462,19 +460,6 @@ namespace LimsProject.BusinessLayer
 				 {
 					_limit_samples = value;
 					 PropertyHasChanged("Limit_samples");
-				 }
-			 }
-		}
-
-		public int?  Idfactor_estequiometrico
-		{
-			 get { return _idfactor_estequiometrico; }
-			 set
-			 {
-				 if (_idfactor_estequiometrico != value)
-				 {
-					_idfactor_estequiometrico = value;
-					 PropertyHasChanged("Idfactor_estequiometrico");
 				 }
 			 }
 		}

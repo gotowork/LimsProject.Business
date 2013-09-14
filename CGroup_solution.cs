@@ -10,48 +10,42 @@ namespace LimsProject.BusinessLayer
 		public enum CGroup_solutionFields
 		{
 			Idgroup_solution,
-			Cod_solution,
 			Idelement,
-			Idmr_detail,
-			Idreactive_medium,
-			Idreactive_modif,
 			Idtemplate_method,
-			Type_solution,
-			Type_pattern,
 			Flag_selected_methods,
+			Flag_close_calib,
+			Flag_sign_calib,
 			User_sign_calib,
 			Date_sign_calib,
-			Flag_sign_calib,
-			Flag_close_calib,
-			Idgroup_solution_previus,
+			Type_solution,
+			Idreactive_medium,
+			Idreactive_modif,
+			Type_pattern,
+			Idmr_detail,
+			Cod_solution,
 			Date_ini,
-			Date_end,
-			Flag_sol_intermedia1,
-			Flag_sol_intermedia2
+			Date_end
 		}
 		#endregion
 
 		#region Data Members
 
 			int _idgroup_solution;
-			string _cod_solution;
 			int? _idelement;
-			short? _idmr_detail;
-			int? _idreactive_medium;
-			int? _idreactive_modif;
 			int? _idtemplate_method;
-			int? _type_solution;
-			int? _type_pattern;
 			bool? _flag_selected_methods;
+			bool? _flag_close_calib;
+			bool? _flag_sign_calib;
 			short? _user_sign_calib;
 			DateTime? _date_sign_calib;
-			bool? _flag_sign_calib;
-			bool? _flag_close_calib;
-			int? _idgroup_solution_previus;
+			int? _type_solution;
+			int? _idreactive_medium;
+			int? _idreactive_modif;
+			int? _type_pattern;
+			short? _idmr_detail;
+			string _cod_solution;
 			DateTime? _date_ini;
 			DateTime? _date_end;
-			bool? _flag_sol_intermedia1;
-			bool? _flag_sol_intermedia2;
 
 		#endregion
 
@@ -70,19 +64,6 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public string  Cod_solution
-		{
-			 get { return _cod_solution; }
-			 set
-			 {
-				 if (_cod_solution != value)
-				 {
-					_cod_solution = value;
-					 PropertyHasChanged("Cod_solution");
-				 }
-			 }
-		}
-
 		public int?  Idelement
 		{
 			 get { return _idelement; }
@@ -92,45 +73,6 @@ namespace LimsProject.BusinessLayer
 				 {
 					_idelement = value;
 					 PropertyHasChanged("Idelement");
-				 }
-			 }
-		}
-
-		public short?  Idmr_detail
-		{
-			 get { return _idmr_detail; }
-			 set
-			 {
-				 if (_idmr_detail != value)
-				 {
-					_idmr_detail = value;
-					 PropertyHasChanged("Idmr_detail");
-				 }
-			 }
-		}
-
-		public int?  Idreactive_medium
-		{
-			 get { return _idreactive_medium; }
-			 set
-			 {
-				 if (_idreactive_medium != value)
-				 {
-					_idreactive_medium = value;
-					 PropertyHasChanged("Idreactive_medium");
-				 }
-			 }
-		}
-
-		public int?  Idreactive_modif
-		{
-			 get { return _idreactive_modif; }
-			 set
-			 {
-				 if (_idreactive_modif != value)
-				 {
-					_idreactive_modif = value;
-					 PropertyHasChanged("Idreactive_modif");
 				 }
 			 }
 		}
@@ -148,32 +90,6 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public int?  Type_solution
-		{
-			 get { return _type_solution; }
-			 set
-			 {
-				 if (_type_solution != value)
-				 {
-					_type_solution = value;
-					 PropertyHasChanged("Type_solution");
-				 }
-			 }
-		}
-
-		public int?  Type_pattern
-		{
-			 get { return _type_pattern; }
-			 set
-			 {
-				 if (_type_pattern != value)
-				 {
-					_type_pattern = value;
-					 PropertyHasChanged("Type_pattern");
-				 }
-			 }
-		}
-
 		public bool?  Flag_selected_methods
 		{
 			 get { return _flag_selected_methods; }
@@ -183,6 +99,32 @@ namespace LimsProject.BusinessLayer
 				 {
 					_flag_selected_methods = value;
 					 PropertyHasChanged("Flag_selected_methods");
+				 }
+			 }
+		}
+
+		public bool?  Flag_close_calib
+		{
+			 get { return _flag_close_calib; }
+			 set
+			 {
+				 if (_flag_close_calib != value)
+				 {
+					_flag_close_calib = value;
+					 PropertyHasChanged("Flag_close_calib");
+				 }
+			 }
+		}
+
+		public bool?  Flag_sign_calib
+		{
+			 get { return _flag_sign_calib; }
+			 set
+			 {
+				 if (_flag_sign_calib != value)
+				 {
+					_flag_sign_calib = value;
+					 PropertyHasChanged("Flag_sign_calib");
 				 }
 			 }
 		}
@@ -213,41 +155,80 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public bool?  Flag_sign_calib
+		public int?  Type_solution
 		{
-			 get { return _flag_sign_calib; }
+			 get { return _type_solution; }
 			 set
 			 {
-				 if (_flag_sign_calib != value)
+				 if (_type_solution != value)
 				 {
-					_flag_sign_calib = value;
-					 PropertyHasChanged("Flag_sign_calib");
+					_type_solution = value;
+					 PropertyHasChanged("Type_solution");
 				 }
 			 }
 		}
 
-		public bool?  Flag_close_calib
+		public int?  Idreactive_medium
 		{
-			 get { return _flag_close_calib; }
+			 get { return _idreactive_medium; }
 			 set
 			 {
-				 if (_flag_close_calib != value)
+				 if (_idreactive_medium != value)
 				 {
-					_flag_close_calib = value;
-					 PropertyHasChanged("Flag_close_calib");
+					_idreactive_medium = value;
+					 PropertyHasChanged("Idreactive_medium");
 				 }
 			 }
 		}
 
-		public int?  Idgroup_solution_previus
+		public int?  Idreactive_modif
 		{
-			 get { return _idgroup_solution_previus; }
+			 get { return _idreactive_modif; }
 			 set
 			 {
-				 if (_idgroup_solution_previus != value)
+				 if (_idreactive_modif != value)
 				 {
-					_idgroup_solution_previus = value;
-					 PropertyHasChanged("Idgroup_solution_previus");
+					_idreactive_modif = value;
+					 PropertyHasChanged("Idreactive_modif");
+				 }
+			 }
+		}
+
+		public int?  Type_pattern
+		{
+			 get { return _type_pattern; }
+			 set
+			 {
+				 if (_type_pattern != value)
+				 {
+					_type_pattern = value;
+					 PropertyHasChanged("Type_pattern");
+				 }
+			 }
+		}
+
+		public short?  Idmr_detail
+		{
+			 get { return _idmr_detail; }
+			 set
+			 {
+				 if (_idmr_detail != value)
+				 {
+					_idmr_detail = value;
+					 PropertyHasChanged("Idmr_detail");
+				 }
+			 }
+		}
+
+		public string  Cod_solution
+		{
+			 get { return _cod_solution; }
+			 set
+			 {
+				 if (_cod_solution != value)
+				 {
+					_cod_solution = value;
+					 PropertyHasChanged("Cod_solution");
 				 }
 			 }
 		}
@@ -274,32 +255,6 @@ namespace LimsProject.BusinessLayer
 				 {
 					_date_end = value;
 					 PropertyHasChanged("Date_end");
-				 }
-			 }
-		}
-
-		public bool?  Flag_sol_intermedia1
-		{
-			 get { return _flag_sol_intermedia1; }
-			 set
-			 {
-				 if (_flag_sol_intermedia1 != value)
-				 {
-					_flag_sol_intermedia1 = value;
-					 PropertyHasChanged("Flag_sol_intermedia1");
-				 }
-			 }
-		}
-
-		public bool?  Flag_sol_intermedia2
-		{
-			 get { return _flag_sol_intermedia2; }
-			 set
-			 {
-				 if (_flag_sol_intermedia2 != value)
-				 {
-					_flag_sol_intermedia2 = value;
-					 PropertyHasChanged("Flag_sol_intermedia2");
 				 }
 			 }
 		}

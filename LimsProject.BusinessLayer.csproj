@@ -127,6 +127,9 @@
     <Compile Include="CTemplate_method_icp_detail.cs" />
     <Compile Include="CTemplate_method_icp_detailFactory.cs" />
     <Compile Include="CTemplate_method_icp_detailKeys.cs" />
+    <Compile Include="CTemplate_method_vc.cs" />
+    <Compile Include="CTemplate_method_vcFactory.cs" />
+    <Compile Include="CTemplate_method_vcKeys.cs" />
     <Compile Include="CTitration_main.cs" />
     <Compile Include="CTitration_mainFactory.cs" />
     <Compile Include="CTitration_mainKeys.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="DataLayer\CTemplate_method_grSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icp_detailSql.cs" />
+    <Compile Include="DataLayer\CTemplate_method_vcSql.cs" />
     <Compile Include="DataLayer\CType_preparation_sampleSql.cs" />
     <Compile Include="DataLayer\CType_sample_controlSql.cs" />
     <Compile Include="DataLayer\Modules\ModQaQcSql.cs" />

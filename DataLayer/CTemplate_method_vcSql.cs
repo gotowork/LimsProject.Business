@@ -9,9 +9,9 @@ using NpgsqlTypes;
 namespace LimsProject.BusinessLayer.DataLayer
 {
 	/// <summary>
-	/// Data access layer class for CTemplate_method_gr
+	/// Data access layer class for CTemplate_method_vc
 	/// </summary>
-	partial class CTemplate_method_grSql : DataLayerBase 
+	partial class CTemplate_method_vcSql : DataLayerBase 
 	{
 
         #region Constructor
@@ -19,7 +19,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 		/// <summary>
 		/// Class constructor
 		/// </summary>
-		public CTemplate_method_grSql()
+		public CTemplate_method_vcSql()
 		{
 			// Nothing for now.
 		}
@@ -33,10 +33,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
 		/// <param name="businessObject">business object</param>
 		/// <returns>true of successfully insert</returns>
-		public bool Insert(CTemplate_method_gr businessObject)
+		public bool Insert(CTemplate_method_vc businessObject)
 		{
 			NpgsqlCommand	sqlCommand = new NpgsqlCommand();
-			sqlCommand.CommandText = "public.sp_template_method_gr_Insert";
+			sqlCommand.CommandText = "public.sp_template_method_vc_Insert";
 			sqlCommand.CommandType = CommandType.StoredProcedure;
 
 			// Use connection object of base class
@@ -103,8 +103,6 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_num_days"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_limit_samples", businessObject.Limit_samples);
 				sqlCommand.Parameters["p_limit_samples"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idfactor_estequiometrico", businessObject.Idfactor_estequiometrico);
-				sqlCommand.Parameters["p_idfactor_estequiometrico"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
 				sqlCommand.Parameters["p_usernew"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datenew", businessObject.Datenew);
@@ -125,7 +123,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 			}
 			catch(Exception ex)
 			{				
-				throw new Exception("CTemplate_method_gr::Insert::Error occured.", ex);
+				throw new Exception("CTemplate_method_vc::Insert::Error occured.", ex);
 			}
 			finally
 			{			
@@ -139,10 +137,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="businessObject">business object</param>
         /// <returns>true for successfully updated</returns>
-        public bool Update(CTemplate_method_gr businessObject)
+        public bool Update(CTemplate_method_vc businessObject)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_Update";
+            sqlCommand.CommandText = "public.sp_template_method_vc_Update";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -209,8 +207,6 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_num_days"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_limit_samples", businessObject.Limit_samples);
 				sqlCommand.Parameters["p_limit_samples"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idfactor_estequiometrico", businessObject.Idfactor_estequiometrico);
-				sqlCommand.Parameters["p_idfactor_estequiometrico"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
 				sqlCommand.Parameters["p_usernew"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datenew", businessObject.Datenew);
@@ -231,7 +227,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CTemplate_method_gr::Update::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::Update::Error occured.", ex);
             }
             finally
             {
@@ -244,11 +240,11 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// Select by primary key
         /// </summary>
         /// <param name="keys">primary keys</param>
-        /// <returns>CTemplate_method_gr business object</returns>
-        public CTemplate_method_gr SelectByPrimaryKey(CTemplate_method_grKeys keys)
+        /// <returns>CTemplate_method_vc business object</returns>
+        public CTemplate_method_vc SelectByPrimaryKey(CTemplate_method_vcKeys keys)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_SelectByPrimaryKey";
+            sqlCommand.CommandText = "public.sp_template_method_vc_SelectByPrimaryKey";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -266,7 +262,7 @@ namespace LimsProject.BusinessLayer.DataLayer
 
                 if (dataReader.Read())
                 {
-                    CTemplate_method_gr businessObject = new CTemplate_method_gr();
+                    CTemplate_method_vc businessObject = new CTemplate_method_vc();
 
                     PopulateBusinessObjectFromReader(businessObject, dataReader);
 
@@ -279,7 +275,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CTemplate_method_gr::SelectByPrimaryKey::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::SelectByPrimaryKey::Error occured.", ex);
             }
             finally
             {             
@@ -292,11 +288,11 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// <summary>
         /// Select all rescords
         /// </summary>
-        /// <returns>list of CTemplate_method_gr</returns>
-        public List<CTemplate_method_gr> SelectAll()
+        /// <returns>list of CTemplate_method_vc</returns>
+        public List<CTemplate_method_vc> SelectAll()
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_SelectAll";
+            sqlCommand.CommandText = "public.sp_template_method_vc_SelectAll";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -314,7 +310,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {                
-                throw new Exception("CTemplate_method_gr::SelectAll::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::SelectAll::Error occured.", ex);
             }
             finally
             {
@@ -329,7 +325,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             
             DataTable dt = new DataTable();
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_SelectAll";
+            sqlCommand.CommandText = "public.sp_template_method_vc_SelectAll";
             sqlCommand.CommandType = CommandType.StoredProcedure;                        
             sqlCommand.Connection = MainConnection;
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sqlCommand);
@@ -344,7 +340,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CTemplate_method_gr::SelectAll::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::SelectAll::Error occured.", ex);
             }
             finally
             {
@@ -359,12 +355,12 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="fieldName">name of field</param>
         /// <param name="value">value of field</param>
-        /// <returns>list of CTemplate_method_gr</returns>
-        public List<CTemplate_method_gr> SelectByField(string fieldName, object value)
+        /// <returns>list of CTemplate_method_vc</returns>
+        public List<CTemplate_method_vc> SelectByField(string fieldName, object value)
         {
 
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_SelectByField";
+            sqlCommand.CommandText = "public.sp_template_method_vc_SelectByField";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -385,7 +381,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CTemplate_method_gr::SelectByField::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::SelectByField::Error occured.", ex);
             }
             finally
             {
@@ -401,10 +397,10 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="keys">primary keys</param>
         /// <returns>true for successfully deleted</returns>
-        public bool Delete(CTemplate_method_grKeys keys)
+        public bool Delete(CTemplate_method_vcKeys keys)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_DeleteByPrimaryKey";
+            sqlCommand.CommandText = "public.sp_template_method_vc_DeleteByPrimaryKey";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -424,7 +420,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("CTemplate_method_gr::DeleteByKey::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::DeleteByKey::Error occured.", ex);
             }
             finally
             {                
@@ -443,7 +439,7 @@ namespace LimsProject.BusinessLayer.DataLayer
         public bool DeleteByField(string fieldName, object value)
         {
             NpgsqlCommand sqlCommand = new NpgsqlCommand();
-            sqlCommand.CommandText = "public.sp_template_method_gr_DeleteByField";
+            sqlCommand.CommandText = "public.sp_template_method_vc_DeleteByField";
             sqlCommand.CommandType = CommandType.StoredProcedure;
 
             // Use connection object of base class
@@ -464,7 +460,7 @@ namespace LimsProject.BusinessLayer.DataLayer
             }
             catch (Exception ex)
             {                
-                throw new Exception("CTemplate_method_gr::DeleteByField::Error occured.", ex);
+                throw new Exception("CTemplate_method_vc::DeleteByField::Error occured.", ex);
             }
             finally
             {             
@@ -483,180 +479,175 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// </summary>
         /// <param name="businessObject">business object</param>
         /// <param name="dataReader">data reader</param>
-        internal void PopulateBusinessObjectFromReader(CTemplate_method_gr businessObject, IDataReader dataReader)
+        internal void PopulateBusinessObjectFromReader(CTemplate_method_vc businessObject, IDataReader dataReader)
         {
 
 
-				businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idtemplate_method.ToString()));
+				businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Idtemplate_method.ToString()));
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Weight.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Weight.ToString())))
 				{
-					businessObject.Weight = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Weight.ToString()));
+					businessObject.Weight = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Weight.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Weight_incertitude.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Weight_incertitude.ToString())))
 				{
-					businessObject.Weight_incertitude = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Weight_incertitude.ToString()));
+					businessObject.Weight_incertitude = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Weight_incertitude.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reading_min.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reading_min.ToString())))
 				{
-					businessObject.Reading_min = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reading_min.ToString()));
+					businessObject.Reading_min = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reading_min.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reading_max.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reading_max.ToString())))
 				{
-					businessObject.Reading_max = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reading_max.ToString()));
+					businessObject.Reading_max = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reading_max.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reason_rep.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reason_rep.ToString())))
 				{
-					businessObject.Reason_rep = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reason_rep.ToString()));
+					businessObject.Reason_rep = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reason_rep.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Error_allowed.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Error_allowed.ToString())))
 				{
-					businessObject.Error_allowed = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Error_allowed.ToString()));
+					businessObject.Error_allowed = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Error_allowed.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Symbol.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Symbol.ToString())))
 				{
-					businessObject.Symbol = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Symbol.ToString()));
+					businessObject.Symbol = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Symbol.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Law_limit_bottom.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Law_limit_bottom.ToString())))
 				{
-					businessObject.Law_limit_bottom = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Law_limit_bottom.ToString()));
+					businessObject.Law_limit_bottom = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Law_limit_bottom.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Law_limit_top.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Law_limit_top.ToString())))
 				{
-					businessObject.Law_limit_top = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Law_limit_top.ToString()));
+					businessObject.Law_limit_top = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Law_limit_top.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_decimal.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_decimal.ToString())))
 				{
-					businessObject.Num_decimal = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_decimal.ToString()));
+					businessObject.Num_decimal = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_decimal.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flag_mr.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flag_mr.ToString())))
 				{
-					businessObject.Flag_mr = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flag_mr.ToString()));
+					businessObject.Flag_mr = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flag_mr.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idmr_detail.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Idmr_detail.ToString())))
 				{
-					businessObject.Idmr_detail = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idmr_detail.ToString()));
+					businessObject.Idmr_detail = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Idmr_detail.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Mr_incertitude.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Mr_incertitude.ToString())))
 				{
-					businessObject.Mr_incertitude = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Mr_incertitude.ToString()));
+					businessObject.Mr_incertitude = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Mr_incertitude.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blk_max.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blk_max.ToString())))
 				{
-					businessObject.Blk_max = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blk_max.ToString()));
+					businessObject.Blk_max = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blk_max.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reproducibility.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reproducibility.ToString())))
 				{
-					businessObject.Reproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Reproducibility.ToString()));
+					businessObject.Reproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Reproducibility.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagsamfortify.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flagsamfortify.ToString())))
 				{
-					businessObject.Flagsamfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagsamfortify.ToString()));
+					businessObject.Flagsamfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flagsamfortify.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortisol.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortisol.ToString())))
 				{
-					businessObject.Samfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortisol.ToString()));
+					businessObject.Samfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortisol.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortialiquot.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortialiquot.ToString())))
 				{
-					businessObject.Samfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortialiquot.ToString()));
+					businessObject.Samfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortialiquot.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortireproducibility.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortireproducibility.ToString())))
 				{
-					businessObject.Samfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Samfortireproducibility.ToString()));
+					businessObject.Samfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Samfortireproducibility.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagblkfortify.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flagblkfortify.ToString())))
 				{
-					businessObject.Flagblkfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Flagblkfortify.ToString()));
+					businessObject.Flagblkfortify = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Flagblkfortify.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortisol.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortisol.ToString())))
 				{
-					businessObject.Blkfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortisol.ToString()));
+					businessObject.Blkfortisol = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortisol.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortialiquot.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortialiquot.ToString())))
 				{
-					businessObject.Blkfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortialiquot.ToString()));
+					businessObject.Blkfortialiquot = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortialiquot.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortireproducibility.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortireproducibility.ToString())))
 				{
-					businessObject.Blkfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Blkfortireproducibility.ToString()));
+					businessObject.Blkfortireproducibility = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Blkfortireproducibility.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Date_allowed_error.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Date_allowed_error.ToString())))
 				{
-					businessObject.Date_allowed_error = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Date_allowed_error.ToString()));
+					businessObject.Date_allowed_error = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Date_allowed_error.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idunit_result.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Idunit_result.ToString())))
 				{
-					businessObject.Idunit_result = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idunit_result.ToString()));
+					businessObject.Idunit_result = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Idunit_result.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_samples.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_samples.ToString())))
 				{
-					businessObject.Num_samples = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_samples.ToString()));
+					businessObject.Num_samples = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_samples.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_days.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_days.ToString())))
 				{
-					businessObject.Num_days = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Num_days.ToString()));
+					businessObject.Num_days = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Num_days.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Limit_samples.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Limit_samples.ToString())))
 				{
-					businessObject.Limit_samples = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Limit_samples.ToString()));
+					businessObject.Limit_samples = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Limit_samples.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idfactor_estequiometrico.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Usernew.ToString())))
 				{
-					businessObject.Idfactor_estequiometrico = dataReader.GetInt32(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Idfactor_estequiometrico.ToString()));
+					businessObject.Usernew = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Usernew.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Usernew.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Datenew.ToString())))
 				{
-					businessObject.Usernew = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Usernew.ToString()));
+					businessObject.Datenew = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Datenew.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Datenew.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Useredit.ToString())))
 				{
-					businessObject.Datenew = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Datenew.ToString()));
+					businessObject.Useredit = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Useredit.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Useredit.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Dateedit.ToString())))
 				{
-					businessObject.Useredit = dataReader.GetString(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Useredit.ToString()));
+					businessObject.Dateedit = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Dateedit.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Dateedit.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Status.ToString())))
 				{
-					businessObject.Dateedit = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Dateedit.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Status.ToString())))
-				{
-					businessObject.Status = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_gr.CTemplate_method_grFields.Status.ToString()));
+					businessObject.Status = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_vc.CTemplate_method_vcFields.Status.ToString()));
 				}
 
 
@@ -666,15 +657,15 @@ namespace LimsProject.BusinessLayer.DataLayer
         /// Populate business objects from the data reader
         /// </summary>
         /// <param name="dataReader">data reader</param>
-        /// <returns>list of CTemplate_method_gr</returns>
-        internal List<CTemplate_method_gr> PopulateObjectsFromReader(IDataReader dataReader)
+        /// <returns>list of CTemplate_method_vc</returns>
+        internal List<CTemplate_method_vc> PopulateObjectsFromReader(IDataReader dataReader)
         {
 
-            List<CTemplate_method_gr> list = new List<CTemplate_method_gr>();
+            List<CTemplate_method_vc> list = new List<CTemplate_method_vc>();
 
             while (dataReader.Read())
             {
-                CTemplate_method_gr businessObject = new CTemplate_method_gr();
+                CTemplate_method_vc businessObject = new CTemplate_method_vc();
                 PopulateBusinessObjectFromReader(businessObject, dataReader);
                 list.Add(businessObject);
             }

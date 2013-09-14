@@ -66,7 +66,7 @@ namespace LimsProject.BusinessLayer.Modules
             List<CTemplate_method> lstTemplate = new CTemplate_methodFactory().GetAll();
             List<CTemplate_method> lstTemplateVersion =
                (from t1 in lstTemplate
-                group t1 by new { t1.Cod_template_method, t1.Abbreviation, t1.Cod_repetition, t1.Cod_digestion_method }
+                group t1 by new { t1.Cod_template_method, t1.Abbreviation, t1.Cod_repetition, t1.Cod_digestion_method, t1.Title }
                     into grp
                     select new CTemplate_method
                     {                        
@@ -74,7 +74,8 @@ namespace LimsProject.BusinessLayer.Modules
                         Abbreviation = grp.Key.Abbreviation,
                         Cod_repetition =  grp.Key.Cod_repetition,
                         Cod_digestion_method = grp.Key.Cod_digestion_method,
-                        Idtemplate_method = grp.Max(c => c.Idtemplate_method)
+                        Idtemplate_method = grp.Max(c => c.Idtemplate_method),
+                        Title = grp.Key.Cod_template_method + " - " + grp.Key.Title
                     }).ToList<CTemplate_method>();
             
 

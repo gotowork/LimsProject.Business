@@ -49,42 +49,36 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters["p_idgroup_solution"].Direction = ParameterDirection.InputOutput;
 
-				sqlCommand.Parameters.AddWithValue("p_cod_solution", businessObject.Cod_solution);
-				sqlCommand.Parameters["p_cod_solution"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
 				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
-				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idreactive_medium", businessObject.Idreactive_medium);
-				sqlCommand.Parameters["p_idreactive_medium"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idreactive_modif", businessObject.Idreactive_modif);
-				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_type_solution", businessObject.Type_solution);
-				sqlCommand.Parameters["p_type_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_type_pattern", businessObject.Type_pattern);
-				sqlCommand.Parameters["p_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_flag_selected_methods", businessObject.Flag_selected_methods);
 				sqlCommand.Parameters["p_flag_selected_methods"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_flag_close_calib", businessObject.Flag_close_calib);
+				sqlCommand.Parameters["p_flag_close_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_flag_sign_calib", businessObject.Flag_sign_calib);
+				sqlCommand.Parameters["p_flag_sign_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_user_sign_calib", businessObject.User_sign_calib);
 				sqlCommand.Parameters["p_user_sign_calib"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_date_sign_calib", businessObject.Date_sign_calib);
 				sqlCommand.Parameters["p_date_sign_calib"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_flag_sign_calib", businessObject.Flag_sign_calib);
-				sqlCommand.Parameters["p_flag_sign_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_flag_close_calib", businessObject.Flag_close_calib);
-				sqlCommand.Parameters["p_flag_close_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution_previus", businessObject.Idgroup_solution_previus);
-				sqlCommand.Parameters["p_idgroup_solution_previus"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_type_solution", businessObject.Type_solution);
+				sqlCommand.Parameters["p_type_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idreactive_medium", businessObject.Idreactive_medium);
+				sqlCommand.Parameters["p_idreactive_medium"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idreactive_modif", businessObject.Idreactive_modif);
+				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_type_pattern", businessObject.Type_pattern);
+				sqlCommand.Parameters["p_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
+				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_cod_solution", businessObject.Cod_solution);
+				sqlCommand.Parameters["p_cod_solution"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_date_ini", businessObject.Date_ini);
 				sqlCommand.Parameters["p_date_ini"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_date_end", businessObject.Date_end);
 				sqlCommand.Parameters["p_date_end"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_flag_sol_intermedia1", businessObject.Flag_sol_intermedia1);
-				sqlCommand.Parameters["p_flag_sol_intermedia1"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_flag_sol_intermedia2", businessObject.Flag_sol_intermedia2);
-				sqlCommand.Parameters["p_flag_sol_intermedia2"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
 								
 				MainConnection.Open();
@@ -124,42 +118,36 @@ namespace LimsProject.BusinessLayer.DataLayer
                 
 				sqlCommand.Parameters.AddWithValue("p_idgroup_solution", businessObject.Idgroup_solution);
 				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_cod_solution", businessObject.Cod_solution);
-				sqlCommand.Parameters["p_cod_solution"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_idelement", businessObject.Idelement);
 				sqlCommand.Parameters["p_idelement"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
-				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
-				sqlCommand.Parameters.AddWithValue("p_idreactive_medium", businessObject.Idreactive_medium);
-				sqlCommand.Parameters["p_idreactive_medium"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idreactive_modif", businessObject.Idreactive_modif);
-				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_type_solution", businessObject.Type_solution);
-				sqlCommand.Parameters["p_type_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_type_pattern", businessObject.Type_pattern);
-				sqlCommand.Parameters["p_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_flag_selected_methods", businessObject.Flag_selected_methods);
 				sqlCommand.Parameters["p_flag_selected_methods"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_flag_close_calib", businessObject.Flag_close_calib);
+				sqlCommand.Parameters["p_flag_close_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_flag_sign_calib", businessObject.Flag_sign_calib);
+				sqlCommand.Parameters["p_flag_sign_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_user_sign_calib", businessObject.User_sign_calib);
 				sqlCommand.Parameters["p_user_sign_calib"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_date_sign_calib", businessObject.Date_sign_calib);
 				sqlCommand.Parameters["p_date_sign_calib"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_flag_sign_calib", businessObject.Flag_sign_calib);
-				sqlCommand.Parameters["p_flag_sign_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_flag_close_calib", businessObject.Flag_close_calib);
-				sqlCommand.Parameters["p_flag_close_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution_previus", businessObject.Idgroup_solution_previus);
-				sqlCommand.Parameters["p_idgroup_solution_previus"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_type_solution", businessObject.Type_solution);
+				sqlCommand.Parameters["p_type_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idreactive_medium", businessObject.Idreactive_medium);
+				sqlCommand.Parameters["p_idreactive_medium"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idreactive_modif", businessObject.Idreactive_modif);
+				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_type_pattern", businessObject.Type_pattern);
+				sqlCommand.Parameters["p_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idmr_detail", businessObject.Idmr_detail);
+				sqlCommand.Parameters["p_idmr_detail"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_cod_solution", businessObject.Cod_solution);
+				sqlCommand.Parameters["p_cod_solution"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_date_ini", businessObject.Date_ini);
 				sqlCommand.Parameters["p_date_ini"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_date_end", businessObject.Date_end);
 				sqlCommand.Parameters["p_date_end"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_flag_sol_intermedia1", businessObject.Flag_sol_intermedia1);
-				sqlCommand.Parameters["p_flag_sol_intermedia1"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_flag_sol_intermedia2", businessObject.Flag_sol_intermedia2);
-				sqlCommand.Parameters["p_flag_sol_intermedia2"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
                 
                 MainConnection.Open();
@@ -428,29 +416,9 @@ namespace LimsProject.BusinessLayer.DataLayer
 
 				businessObject.Idgroup_solution = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idgroup_solution.ToString()));
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Cod_solution.ToString())))
-				{
-					businessObject.Cod_solution = dataReader.GetString(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Cod_solution.ToString()));
-				}
-
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idelement.ToString())))
 				{
 					businessObject.Idelement = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idelement.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idmr_detail.ToString())))
-				{
-					businessObject.Idmr_detail = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idmr_detail.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_medium.ToString())))
-				{
-					businessObject.Idreactive_medium = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_medium.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_modif.ToString())))
-				{
-					businessObject.Idreactive_modif = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_modif.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idtemplate_method.ToString())))
@@ -458,19 +426,19 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idtemplate_method.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_solution.ToString())))
-				{
-					businessObject.Type_solution = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_solution.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_pattern.ToString())))
-				{
-					businessObject.Type_pattern = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_pattern.ToString()));
-				}
-
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_selected_methods.ToString())))
 				{
 					businessObject.Flag_selected_methods = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_selected_methods.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_close_calib.ToString())))
+				{
+					businessObject.Flag_close_calib = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_close_calib.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sign_calib.ToString())))
+				{
+					businessObject.Flag_sign_calib = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sign_calib.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.User_sign_calib.ToString())))
@@ -483,19 +451,34 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Date_sign_calib = dataReader.GetDateTime(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Date_sign_calib.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sign_calib.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_solution.ToString())))
 				{
-					businessObject.Flag_sign_calib = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sign_calib.ToString()));
+					businessObject.Type_solution = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_solution.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_close_calib.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_medium.ToString())))
 				{
-					businessObject.Flag_close_calib = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_close_calib.ToString()));
+					businessObject.Idreactive_medium = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_medium.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idgroup_solution_previus.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_modif.ToString())))
 				{
-					businessObject.Idgroup_solution_previus = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idgroup_solution_previus.ToString()));
+					businessObject.Idreactive_modif = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idreactive_modif.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_pattern.ToString())))
+				{
+					businessObject.Type_pattern = dataReader.GetInt32(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Type_pattern.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idmr_detail.ToString())))
+				{
+					businessObject.Idmr_detail = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Idmr_detail.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Cod_solution.ToString())))
+				{
+					businessObject.Cod_solution = dataReader.GetString(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Cod_solution.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Date_ini.ToString())))
@@ -506,16 +489,6 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Date_end.ToString())))
 				{
 					businessObject.Date_end = dataReader.GetDateTime(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Date_end.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sol_intermedia1.ToString())))
-				{
-					businessObject.Flag_sol_intermedia1 = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sol_intermedia1.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sol_intermedia2.ToString())))
-				{
-					businessObject.Flag_sol_intermedia2 = dataReader.GetBoolean(dataReader.GetOrdinal(CGroup_solution.CGroup_solutionFields.Flag_sol_intermedia2.ToString()));
 				}
 
 

@@ -230,87 +230,11 @@ namespace LimsProject.BusinessLayer.Modules
 
             return query;
         }
-
-
-        /// <summary>
-        /// Lista los métodos por elemento, material de referencia, medio y modificador
-        /// </summary>
-        /// 
-        public BindingList<CCustom_method_solution> GetMethodsByMrcPattern(CGroup_solution group_solution)
-        {
-            List<CTemplate_method_aa> lstTemplate_method_aa =
-                new CTemplate_method_aaFactory()
-                .GetAll()
-                .Where(c => c.Mrorpattern == group_solution.Idmr_detail && c.Medium == group_solution.Idreactive_medium && c.Modif == group_solution.Idreactive_modif).ToList();
-
-            List<CTemplate_method> lstTemplate_method =
-                new CTemplate_methodFactory()
-                .GetAll()
-                .Where(c => c.Idelement == group_solution.Idelement).ToList();
-
-            var query_group_methods = new CGroup_solution_methodsFactory().GetAll().Where(c => c.Idgroup_solution == group_solution.Idgroup_solution).ToList();
-
-            BindingList<CCustom_method_solution> query = new BindingList<CCustom_method_solution>(
-                (from m in lstTemplate_method
-                 join n in lstTemplate_method_aa on m.Idtemplate_method equals n.Idtemplate_method
-                 join p in query_group_methods on n.Idtemplate_method equals p.Idtemplate_method into ps
-                 from q in ps.DefaultIfEmpty()
-                 select new CCustom_method_solution { 
-                     Sel = q == null ? false : Convert.ToBoolean(q.Status),
-                     Idtemplate_method = n.Idtemplate_method,
-                     Cod_template_method = m.Cod_template_method,
-                     Title = m.Title
-                 }
-                 ).ToList());
-
-            return query;
-        }
-
         /// <summary>
         /// Lista los métodos por elemento, material de referencia patron y soluciones intermedias si tubieran
         /// </summary>
         /// <param name="group_solution"></param>
-        /// <returns></returns>
-        public BindingList<CCustom_method_solution> GetMethodsBySolInterm(CGroup_solution group_solution, int currentTypeSol)
-        {
-            // 1:solución intermedia 1, 2:solución intermedia 2, 3:estandar de verificación
-            // si es un tipo de solución estandar entonces recuperar los métodos de la solución padre inmediato
-            List<CTemplate_method_aa> lstTemplate_method_aa =
-                new CTemplate_method_aaFactory()
-                .GetAll()
-                .Where(c => c.Std_mrorpattern == group_solution.Idmr_detail
-                    && ((c.Std_flag_sol_intermedia1 == group_solution.Flag_sol_intermedia1 && currentTypeSol == 1)
-                    || (c.Std_flag_sol_intermedia2 == group_solution.Flag_sol_intermedia2 && currentTypeSol == 2))).ToList();
-
-            List<CTemplate_method> lstTemplate_method =
-                new CTemplate_methodFactory()
-                .GetAll()
-                .Where(c => c.Idelement == group_solution.Idelement).ToList();
-
-            // obtener un filtro de grupos para hacer la selección predeterminada
-            var query_group_methods = new CGroup_solution_methodsFactory()
-                .GetAll()
-                .Where(c => c.Idgroup_solution == group_solution.Idgroup_solution)
-                .ToList();
-
-            // obtener items preseleccionados
-            BindingList<CCustom_method_solution> query = new BindingList<CCustom_method_solution>(
-                (from m in lstTemplate_method
-                 join n in lstTemplate_method_aa on m.Idtemplate_method equals n.Idtemplate_method
-                 join p in query_group_methods on n.Idtemplate_method equals p.Idtemplate_method into ps
-                 from q in ps.DefaultIfEmpty()
-                 select new CCustom_method_solution
-                 {
-                     Sel = q == null ? false : Convert.ToBoolean(q.Status),
-                     Idtemplate_method = n.Idtemplate_method,
-                     Cod_template_method = m.Cod_template_method,
-                     Title = m.Title
-                 }
-                 ).ToList());
-
-            return query;
-        }
-
+        /// <returns></returns>        
 
         public enum Correlative
         {
@@ -371,77 +295,12 @@ namespace LimsProject.BusinessLayer.Modules
             return lst;
         }
 
-        public CGroup_solution GetGroupSolution(int idelement, int? idreactive_medium, int? idreactive_modif, int idtemplate_method, int typeSol)
-        {
-            ///Group_solution
-            ///1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
-            ///
-            ///Solution
-            ///1:solution intermedia 1, 2:solution intermedia 2, 3: estandar verificación
-            ///
-            typeSol = typeSol == 3 ? 2 : typeSol;
-
-            if (typeSol == 2 || typeSol == 3 || typeSol == 4)
-                typeSol = 2;
-
-            List<CGroup_solution> lst = 
-                (from m in new CGroup_solutionFactory().GetAll()
-                 where m.Idelement == idelement && m.Idreactive_medium == idreactive_medium
-                 && m.Idreactive_modif == idreactive_modif /*&& m.Idtemplate_method == idtemplate_method*/
-                 && m.Type_solution == typeSol
-                 select m).ToList();
-
-            if (lst.Count > 0)
-                return lst[0];
-            return null;
-        }
-
-        public CGroup_solution GetGroupSolution(int idtemplate_method, int typeSol)
-        {
-            ///Group_solution
-            ///1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
-            ///
-            ///Solution
-            ///1:solution intermedia 1, 2:solution intermedia 2, 3: estandar verificación
-            ///
-
-            if (typeSol == 2 || typeSol == 3 || typeSol == 4)
-            {
-                // son solo soluciones
-                List<CSolution> query =
-                    (from m in new CSolutionFactory().GetAll()
-                     join n in new CSolution_methodsFactory().GetAll() on m.Idsolution equals n.Idsolution
-                     where n.Idtemplate_method == idtemplate_method && (m.Type_sol == 1 || m.Type_sol == 2 || m.Type_sol == 3)
-                        && m.Solution_status == true
-                     select m).ToList();
-
-                if (query.Count > 0)
-                {
-                    CGroup_solution groupSolution =
-                        new CGroup_solutionFactory()
-                        .GetByPrimaryKey(new CGroup_solutionKeys(Convert.ToInt32(query[0].Idgroup_solution)));
-
-                    return groupSolution;
-                }
-            }
-            else
-            {
-                // son soluciones de calibración o soluciones titulantes
-                if (typeSol == 1)
-                {
-                    CTemplate_method template_method = new CTemplate_methodFactory().GetByPrimaryKey(new CTemplate_methodKeys(idtemplate_method));
-                    CTemplate_method_aa template_method_aa = new CTemplate_method_aaFactory().GetByPrimaryKey(new CTemplate_method_aaKeys(idtemplate_method));
-
-                    List<CGroup_solution> lst =
-                    (from m in new CGroup_solutionFactory().GetAll()
-                     where m.Idelement == template_method.Idelement && m.Idreactive_medium == template_method_aa.Medium
-                         && m.Idreactive_modif == template_method_aa.Modif && m.Idtemplate_method == idtemplate_method
-                         && m.Type_solution == typeSol && (m.Flag_close_calib == null || m.Flag_close_calib == false)
-                     select m).ToList();
-                }
-            }
-            return null;
-        }
+        ///Group_solution
+        ///1:SC, 2:SI-1, 3:SI-2, 4:EV, 5:ST
+        ///
+        ///Solution
+        ///1:solution intermedia 1, 2:solution intermedia 2, 3: estandar verificación
+        ///               
     }
 
     public class CCustom_solution
