@@ -77,12 +77,23 @@ namespace LimsProject.BusinessLayer.Modules
                         Idtemplate_method = grp.Max(c => c.Idtemplate_method),
                         Title = grp.Key.Cod_template_method + " - " + grp.Key.Title
                     }).ToList<CTemplate_method>();
-            
+
 
             return (from t1 in lstTemplateVersion
-                    join t2 in lstTemplate on t1.Idtemplate_method equals t2.Idtemplate_method                    
+                    join t2 in lstTemplate on t1.Idtemplate_method equals t2.Idtemplate_method
                     orderby t2.Cod_template_method
-                    select t2).ToList<CTemplate_method>();
+                    select new CTemplate_method {
+                        Abbreviation = t2.Abbreviation,
+                        Cod_repetition = t2.Cod_repetition,
+                        Cod_template_method = t2.Cod_template_method,
+                        Cod_type_sample = t2.Cod_type_sample,
+                        Cost_method = t2.Cost_method,
+                        Cod_digestion_method = t2.Cod_digestion_method,
+                        Idelement = t2.Idelement,
+                        Idtemplate_method = t2.Idtemplate_method,
+                        Type_analisys = t2.Type_analisys,
+                        Title = t2.Cod_template_method + " - " + t2.Title
+                    }).ToList<CTemplate_method>();
         }
 
         public List<CTemplate_method> GetAllLastVersionMethods(int? idelement, string cod_type_sample, char? type_analysis)
