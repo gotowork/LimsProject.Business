@@ -19,12 +19,11 @@ namespace LimsProject.BusinessLayer.Modules
             return lst;
         }
 
-        public List<CSolution> GetLstSolution(short? idelement, int type_pattern)
+        public List<CSolution_interm> GetLstSolution(short? idelement, Comun.TypePatternMr type_pattern)
         {
-            List<CSolution> lst =
-                (from m in new CSolutionFactory().GetAll()
-                 from n in new CGroup_solutionFactory().GetAll().Where(x=> x.Idgroup_solution == m.Idgroup_solution)
-                 where n.Idelement == idelement && n.Type_pattern == type_pattern
+            List<CSolution_interm> lst =
+                (from m in new CSolution_intermFactory().GetAll()
+                 where m.Idelement == idelement && m.Root_type_pattern == Convert.ToInt32(type_pattern)
                  select m).ToList();
 
             return lst;

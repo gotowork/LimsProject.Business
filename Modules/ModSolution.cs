@@ -11,39 +11,18 @@ namespace LimsProject.BusinessLayer.Modules
     public class ModSolution
     {
 
-        public List<CCustom_solution> GetLstMrc(short idelement)
+
+        public List<CCustom_solution> GetLstMrc(Comun.TypeMr typeMr, short idelement)
         {
-            CSettings oSettings = new CSettings();            
+            CSettings oSettings = new CSettings();
             List<CMr_detail> lstMr_detail = new CMr_detailFactory().GetAll().Where(c => c.Analyte == idelement).ToList();
             List<CMr> lstMr = new CMrFactory().GetAll();
 
             // get reference material
             List<CCustom_solution> query1 =
                 (from t1 in lstMr_detail
-                 join t2 in lstMr on t1.Idmr equals t2.Idmr                 
-                 where t2.Type_mr == 'C'
-                 select new CCustom_solution
-                 {
-                     Idmr = t2.Idmr,
-                     Idmr_detail = t1.Idmr_detail,
-                     Code = t2.Cod_mr,                     
-                     Name = t2.Cod_mr
-                 }).ToList<CCustom_solution>();
-
-            return query1;
-        }
-
-        public List<CCustom_solution> GetLstPatron(short idelement)
-        {
-            CSettings oSettings = new CSettings();            
-            List<CMr_detail> lstMr_detail = new CMr_detailFactory().GetAll().Where(c => c.Analyte == idelement).ToList();
-            List<CMr> lstMr = new CMrFactory().GetAll();
-
-            // get reference material
-            List<CCustom_solution> query1 =
-                (from t1 in lstMr_detail
-                 join t2 in lstMr on t1.Idmr equals t2.Idmr                 
-                 where t2.Type_mr == 'S'
+                 join t2 in lstMr on t1.Idmr equals t2.Idmr
+                 where t2.Type_mr == Convert.ToChar(typeMr)
                  select new CCustom_solution
                  {
                      Idmr = t2.Idmr,

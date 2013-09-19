@@ -65,7 +65,7 @@ namespace LimsProject.BusinessLayer.Modules
                         // --- insert mri
                         control_sample.Cod_interno = index_mri;
                         control_sample.Idbatch = idbatch;
-                        control_sample.Cod_sample = MComun.FormatCorrelativeCode(correlative.Prefix + correlative.Cod_serie, index_mri, Convert.ToInt32(correlative.Num_digits));
+                        control_sample.Cod_sample = Comun.FormatCorrelativeCode(correlative.Prefix + correlative.Cod_serie, index_mri, Convert.ToInt32(correlative.Num_digits));
                         if (faBatch_detail_aa_twofold.Insert(control_sample))
                         {
                             oBatch.Has_sample_control = true;
@@ -354,7 +354,7 @@ namespace LimsProject.BusinessLayer.Modules
                             // --- insert mri
                             control_sample.Cod_interno = index_mri;
                             control_sample.Idbatch = idbatch;
-                            control_sample.Cod_sample = MComun.FormatCorrelativeCode(Correlative.Prefix + Correlative.Cod_serie, index_mri, Convert.ToInt32(Correlative.Num_digits));
+                            control_sample.Cod_sample = Comun.FormatCorrelativeCode(Correlative.Prefix + Correlative.Cod_serie, index_mri, Convert.ToInt32(Correlative.Num_digits));
                             if (faBatch_detail_aa_twofold.Insert(control_sample))
                             {
                                 oBatch.Has_sample_control = true;
@@ -372,7 +372,7 @@ namespace LimsProject.BusinessLayer.Modules
                             // --- insert mri
                             control_sample.Cod_interno = index_mri;
                             control_sample.Idbatch = idbatch;
-                            control_sample.Cod_sample = MComun.FormatCorrelativeCode(Correlative.Prefix + Correlative.Cod_serie, index_mri, Convert.ToInt32(Correlative.Num_digits));
+                            control_sample.Cod_sample = Comun.FormatCorrelativeCode(Correlative.Prefix + Correlative.Cod_serie, index_mri, Convert.ToInt32(Correlative.Num_digits));
                             if (faBatch_detail_aa_twofold.Insert(control_sample))
                             {
                                 oBatch.Has_sample_control = true;

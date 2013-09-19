@@ -48,6 +48,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Npgsql" />
   </ItemGroup>
@@ -112,6 +113,9 @@
     <Compile Include="CSet_methods_calib.cs" />
     <Compile Include="CSet_methods_calibFactory.cs" />
     <Compile Include="CSet_methods_calibKeys.cs" />
+    <Compile Include="CSolution_interm.cs" />
+    <Compile Include="CSolution_intermFactory.cs" />
+    <Compile Include="CSolution_intermKeys.cs" />
     <Compile Include="CSolution_titration.cs" />
     <Compile Include="CSolution_titrationFactory.cs" />
     <Compile Include="CSolution_titrationKeys.cs" />
@@ -154,6 +158,7 @@
     <Compile Include="DataLayer\CMatrix_groupSql.cs" />
     <Compile Include="DataLayer\CMatrix_itemSql.cs" />
     <Compile Include="DataLayer\CPrep_samplesSql.cs" />
+    <Compile Include="DataLayer\CSolution_intermSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_ahSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_grSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
@@ -161,6 +166,7 @@
     <Compile Include="DataLayer\CTemplate_method_vcSql.cs" />
     <Compile Include="DataLayer\CType_preparation_sampleSql.cs" />
     <Compile Include="DataLayer\CType_sample_controlSql.cs" />
+    <Compile Include="Modules\Comun.cs" />
     <Compile Include="DataLayer\Modules\ModQaQcSql.cs" />
     <Compile Include="DataLayer\CBatch_result_aa_qaqcSql.cs" />
     <Compile Include="DataLayer\CIcp_lecturasSql.cs" />
@@ -177,7 +183,6 @@
     <Compile Include="Modules\CBatchManager.cs" />
     <Compile Include="Modules\CSettings.cs" />
     <Compile Include="Modules\CUser_Authorization.cs" />
-    <Compile Include="Modules\MComun.cs" />
     <Compile Include="Modules\Methods.cs" />
     <Compile Include="Modules\ModCalibStd.cs" />
     <Compile Include="Modules\ModCorrelatives.cs" />
