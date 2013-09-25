@@ -27,13 +27,14 @@ namespace LimsProject.BusinessLayer
 			Observation,
 			Lote,
 			Solution_status,
+			Expired_status,
 			Root_type_pattern,
 			Root_idmr_detail,
 			Idreactive_medium,
 			Reactive_medium_value,
 			Idreactive_modif,
 			Reactive_modif_value,
-			Concat_cod_methods,
+			Flag_current_method,
 			Image_index,
 			Usernew,
 			Datenew,
@@ -63,13 +64,14 @@ namespace LimsProject.BusinessLayer
 			string _observation;
 			string _lote;
 			bool? _solution_status;
+			bool? _expired_status;
 			int? _root_type_pattern;
 			short? _root_idmr_detail;
 			int? _idreactive_medium;
 			decimal? _reactive_medium_value;
 			int? _idreactive_modif;
 			decimal? _reactive_modif_value;
-			string _concat_cod_methods;
+			bool? _flag_current_method;
 			int? _image_index;
 			string _usernew;
 			DateTime? _datenew;
@@ -315,6 +317,19 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public bool?  Expired_status
+		{
+			 get { return _expired_status; }
+			 set
+			 {
+				 if (_expired_status != value)
+				 {
+					_expired_status = value;
+					 PropertyHasChanged("Expired_status");
+				 }
+			 }
+		}
+
 		public int?  Root_type_pattern
 		{
 			 get { return _root_type_pattern; }
@@ -393,15 +408,15 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public string  Concat_cod_methods
+		public bool?  Flag_current_method
 		{
-			 get { return _concat_cod_methods; }
+			 get { return _flag_current_method; }
 			 set
 			 {
-				 if (_concat_cod_methods != value)
+				 if (_flag_current_method != value)
 				 {
-					_concat_cod_methods = value;
-					 PropertyHasChanged("Concat_cod_methods");
+					_flag_current_method = value;
+					 PropertyHasChanged("Flag_current_method");
 				 }
 			 }
 		}
@@ -496,7 +511,6 @@ namespace LimsProject.BusinessLayer
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Solution_name", "Solution_name",50));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Observation", "Observation",100));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Lote", "Lote",12));
-			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Concat_cod_methods", "Concat_cod_methods",100));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
 		}

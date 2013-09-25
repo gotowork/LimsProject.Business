@@ -145,14 +145,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_std_concentration_sol1"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_std_concentration_sol2", businessObject.Std_concentration_sol2);
 				sqlCommand.Parameters["p_std_concentration_sol2"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_std_validity", businessObject.Std_validity);
-				sqlCommand.Parameters["p_std_validity"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_std_status", businessObject.Std_status);
 				sqlCommand.Parameters["p_std_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_std_date_preparation", businessObject.Std_date_preparation);
-				sqlCommand.Parameters["p_std_date_preparation"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_std_date_expiration", businessObject.Std_date_expiration);
-				sqlCommand.Parameters["p_std_date_expiration"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_std_sol1_medium", businessObject.Std_sol1_medium);
 				sqlCommand.Parameters["p_std_sol1_medium"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_std_sol2_medium", businessObject.Std_sol2_medium);
@@ -167,6 +161,12 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_num_days"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_limit_samples", businessObject.Limit_samples);
 				sqlCommand.Parameters["p_limit_samples"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sol1", businessObject.Std_validity_sol1);
+				sqlCommand.Parameters["p_std_validity_sol1"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sol2", businessObject.Std_validity_sol2);
+				sqlCommand.Parameters["p_std_validity_sol2"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sv", businessObject.Std_validity_sv);
+				sqlCommand.Parameters["p_std_validity_sv"].NpgsqlDbType = NpgsqlDbType.Smallint;
 
 								
 				MainConnection.Open();
@@ -303,14 +303,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_std_concentration_sol1"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_std_concentration_sol2", businessObject.Std_concentration_sol2);
 				sqlCommand.Parameters["p_std_concentration_sol2"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_std_validity", businessObject.Std_validity);
-				sqlCommand.Parameters["p_std_validity"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_std_status", businessObject.Std_status);
 				sqlCommand.Parameters["p_std_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
-				sqlCommand.Parameters.AddWithValue("p_std_date_preparation", businessObject.Std_date_preparation);
-				sqlCommand.Parameters["p_std_date_preparation"].NpgsqlDbType = NpgsqlDbType.Timestamp;
-				sqlCommand.Parameters.AddWithValue("p_std_date_expiration", businessObject.Std_date_expiration);
-				sqlCommand.Parameters["p_std_date_expiration"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 				sqlCommand.Parameters.AddWithValue("p_std_sol1_medium", businessObject.Std_sol1_medium);
 				sqlCommand.Parameters["p_std_sol1_medium"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_std_sol2_medium", businessObject.Std_sol2_medium);
@@ -325,6 +319,12 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_num_days"].NpgsqlDbType = NpgsqlDbType.Smallint;
 				sqlCommand.Parameters.AddWithValue("p_limit_samples", businessObject.Limit_samples);
 				sqlCommand.Parameters["p_limit_samples"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sol1", businessObject.Std_validity_sol1);
+				sqlCommand.Parameters["p_std_validity_sol1"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sol2", businessObject.Std_validity_sol2);
+				sqlCommand.Parameters["p_std_validity_sol2"].NpgsqlDbType = NpgsqlDbType.Smallint;
+				sqlCommand.Parameters.AddWithValue("p_std_validity_sv", businessObject.Std_validity_sv);
+				sqlCommand.Parameters["p_std_validity_sv"].NpgsqlDbType = NpgsqlDbType.Smallint;
 
                 
                 MainConnection.Open();
@@ -838,24 +838,9 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Std_concentration_sol2 = dataReader.GetDecimal(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_concentration_sol2.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity.ToString())))
-				{
-					businessObject.Std_validity = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity.ToString()));
-				}
-
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_status.ToString())))
 				{
 					businessObject.Std_status = dataReader.GetBoolean(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_status.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_date_preparation.ToString())))
-				{
-					businessObject.Std_date_preparation = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_date_preparation.ToString()));
-				}
-
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_date_expiration.ToString())))
-				{
-					businessObject.Std_date_expiration = dataReader.GetDateTime(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_date_expiration.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_sol1_medium.ToString())))
@@ -891,6 +876,21 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Limit_samples.ToString())))
 				{
 					businessObject.Limit_samples = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Limit_samples.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sol1.ToString())))
+				{
+					businessObject.Std_validity_sol1 = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sol1.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sol2.ToString())))
+				{
+					businessObject.Std_validity_sol2 = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sol2.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sv.ToString())))
+				{
+					businessObject.Std_validity_sv = (short?)dataReader.GetInt16(dataReader.GetOrdinal(CTemplate_method_aa.CTemplate_method_aaFields.Std_validity_sv.ToString()));
 				}
 
 

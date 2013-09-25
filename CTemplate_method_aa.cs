@@ -59,17 +59,17 @@ namespace LimsProject.BusinessLayer
 			Std_concentration,
 			Std_concentration_sol1,
 			Std_concentration_sol2,
-			Std_validity,
 			Std_status,
-			Std_date_preparation,
-			Std_date_expiration,
 			Std_sol1_medium,
 			Std_sol2_medium,
 			Std_stdverif_medium,
 			Idunit_result,
 			Num_samples,
 			Num_days,
-			Limit_samples
+			Limit_samples,
+			Std_validity_sol1,
+			Std_validity_sol2,
+			Std_validity_sv
 		}
 		#endregion
 
@@ -125,10 +125,7 @@ namespace LimsProject.BusinessLayer
 			decimal? _std_concentration;
 			decimal? _std_concentration_sol1;
 			decimal? _std_concentration_sol2;
-			short? _std_validity;
 			bool? _std_status;
-			DateTime? _std_date_preparation;
-			DateTime? _std_date_expiration;
 			decimal? _std_sol1_medium;
 			decimal? _std_sol2_medium;
 			decimal? _std_stdverif_medium;
@@ -136,6 +133,9 @@ namespace LimsProject.BusinessLayer
 			short? _num_samples;
 			short? _num_days;
 			short? _limit_samples;
+			short? _std_validity_sol1;
+			short? _std_validity_sol2;
+			short? _std_validity_sv;
 
 		#endregion
 
@@ -791,19 +791,6 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public short?  Std_validity
-		{
-			 get { return _std_validity; }
-			 set
-			 {
-				 if (_std_validity != value)
-				 {
-					_std_validity = value;
-					 PropertyHasChanged("Std_validity");
-				 }
-			 }
-		}
-
 		public bool?  Std_status
 		{
 			 get { return _std_status; }
@@ -813,32 +800,6 @@ namespace LimsProject.BusinessLayer
 				 {
 					_std_status = value;
 					 PropertyHasChanged("Std_status");
-				 }
-			 }
-		}
-
-		public DateTime?  Std_date_preparation
-		{
-			 get { return _std_date_preparation; }
-			 set
-			 {
-				 if (_std_date_preparation != value)
-				 {
-					_std_date_preparation = value;
-					 PropertyHasChanged("Std_date_preparation");
-				 }
-			 }
-		}
-
-		public DateTime?  Std_date_expiration
-		{
-			 get { return _std_date_expiration; }
-			 set
-			 {
-				 if (_std_date_expiration != value)
-				 {
-					_std_date_expiration = value;
-					 PropertyHasChanged("Std_date_expiration");
 				 }
 			 }
 		}
@@ -930,6 +891,45 @@ namespace LimsProject.BusinessLayer
 				 {
 					_limit_samples = value;
 					 PropertyHasChanged("Limit_samples");
+				 }
+			 }
+		}
+
+		public short?  Std_validity_sol1
+		{
+			 get { return _std_validity_sol1; }
+			 set
+			 {
+				 if (_std_validity_sol1 != value)
+				 {
+					_std_validity_sol1 = value;
+					 PropertyHasChanged("Std_validity_sol1");
+				 }
+			 }
+		}
+
+		public short?  Std_validity_sol2
+		{
+			 get { return _std_validity_sol2; }
+			 set
+			 {
+				 if (_std_validity_sol2 != value)
+				 {
+					_std_validity_sol2 = value;
+					 PropertyHasChanged("Std_validity_sol2");
+				 }
+			 }
+		}
+
+		public short?  Std_validity_sv
+		{
+			 get { return _std_validity_sv; }
+			 set
+			 {
+				 if (_std_validity_sv != value)
+				 {
+					_std_validity_sv = value;
+					 PropertyHasChanged("Std_validity_sv");
 				 }
 			 }
 		}

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Security.Cryptography;
 using LimsProject.BusinessLayer;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
 
 namespace LimsProject
 {
@@ -41,7 +42,17 @@ namespace LimsProject
         
         #endregion      
                         
-        
+        public static string GetDescription(this Enum value)
+        {
+            var descriptionAttribute = (DescriptionAttribute)value.GetType()
+                .GetField(value.ToString())
+                .GetCustomAttributes(false)
+                .Where(a => a is DescriptionAttribute)
+                .FirstOrDefault();
+
+            return descriptionAttribute != null ? descriptionAttribute.Description : value.ToString();
+        }
+
         /// <summary>
         /// constantes nulas
         /// </summary>
@@ -68,6 +79,24 @@ namespace LimsProject
             WithErrorNotApproved = 3,
             WithErrorApprovedWithText = 4,
             WithErrorApprovedWithRetest = 5
+        }
+
+        public enum Correlative
+        {
+            [Description("EC")]
+            EstandarCalibracion = 1,
+            [Description("SI1")]
+            SolucionInterm1 = 2,
+            [Description("SI2")]
+            SolucionInterm2 = 3,
+            [Description("EV")]
+            EstandarVerificacion = 4,
+            [Description("ST")]
+            SolucionTitulante = 5,
+            [Description("CS")]
+            Price = 6,
+            [Description("DC")]
+            Decree = 7
         }
 
         public enum CriteriaSort

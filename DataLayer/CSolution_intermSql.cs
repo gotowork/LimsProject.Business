@@ -83,6 +83,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_lote"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_solution_status", businessObject.Solution_status);
 				sqlCommand.Parameters["p_solution_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_expired_status", businessObject.Expired_status);
+				sqlCommand.Parameters["p_expired_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_root_type_pattern", businessObject.Root_type_pattern);
 				sqlCommand.Parameters["p_root_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_root_idmr_detail", businessObject.Root_idmr_detail);
@@ -95,8 +97,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_reactive_modif_value", businessObject.Reactive_modif_value);
 				sqlCommand.Parameters["p_reactive_modif_value"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_concat_cod_methods", businessObject.Concat_cod_methods);
-				sqlCommand.Parameters["p_concat_cod_methods"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_flag_current_method", businessObject.Flag_current_method);
+				sqlCommand.Parameters["p_flag_current_method"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_image_index", businessObject.Image_index);
 				sqlCommand.Parameters["p_image_index"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
@@ -182,6 +184,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_lote"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_solution_status", businessObject.Solution_status);
 				sqlCommand.Parameters["p_solution_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_expired_status", businessObject.Expired_status);
+				sqlCommand.Parameters["p_expired_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_root_type_pattern", businessObject.Root_type_pattern);
 				sqlCommand.Parameters["p_root_type_pattern"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_root_idmr_detail", businessObject.Root_idmr_detail);
@@ -194,8 +198,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idreactive_modif"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_reactive_modif_value", businessObject.Reactive_modif_value);
 				sqlCommand.Parameters["p_reactive_modif_value"].NpgsqlDbType = NpgsqlDbType.Numeric;
-				sqlCommand.Parameters.AddWithValue("p_concat_cod_methods", businessObject.Concat_cod_methods);
-				sqlCommand.Parameters["p_concat_cod_methods"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_flag_current_method", businessObject.Flag_current_method);
+				sqlCommand.Parameters["p_flag_current_method"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_image_index", businessObject.Image_index);
 				sqlCommand.Parameters["p_image_index"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_usernew", businessObject.Usernew);
@@ -561,6 +565,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Solution_status = dataReader.GetBoolean(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Solution_status.ToString()));
 				}
 
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Expired_status.ToString())))
+				{
+					businessObject.Expired_status = dataReader.GetBoolean(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Expired_status.ToString()));
+				}
+
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Root_type_pattern.ToString())))
 				{
 					businessObject.Root_type_pattern = dataReader.GetInt32(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Root_type_pattern.ToString()));
@@ -591,9 +600,9 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Reactive_modif_value = dataReader.GetDecimal(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Reactive_modif_value.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Concat_cod_methods.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Flag_current_method.ToString())))
 				{
-					businessObject.Concat_cod_methods = dataReader.GetString(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Concat_cod_methods.ToString()));
+					businessObject.Flag_current_method = dataReader.GetBoolean(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Flag_current_method.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Image_index.ToString())))

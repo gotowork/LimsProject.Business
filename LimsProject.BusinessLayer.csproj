@@ -116,6 +116,9 @@
     <Compile Include="CSolution_interm.cs" />
     <Compile Include="CSolution_intermFactory.cs" />
     <Compile Include="CSolution_intermKeys.cs" />
+    <Compile Include="CSolution_interm_methods.cs" />
+    <Compile Include="CSolution_interm_methodsFactory.cs" />
+    <Compile Include="CSolution_interm_methodsKeys.cs" />
     <Compile Include="CSolution_titration.cs" />
     <Compile Include="CSolution_titrationFactory.cs" />
     <Compile Include="CSolution_titrationKeys.cs" />
@@ -159,6 +162,7 @@
     <Compile Include="DataLayer\CMatrix_itemSql.cs" />
     <Compile Include="DataLayer\CPrep_samplesSql.cs" />
     <Compile Include="DataLayer\CSolution_intermSql.cs" />
+    <Compile Include="DataLayer\CSolution_interm_methodsSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_ahSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_grSql.cs" />
     <Compile Include="DataLayer\CTemplate_method_icpSql.cs" />
