@@ -61,8 +61,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idset_calibs"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution", businessObject.Idgroup_solution);
-				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idsolution_interm", businessObject.Idsolution_interm);
+				sqlCommand.Parameters["p_idsolution_interm"].NpgsqlDbType = NpgsqlDbType.Integer;
 
 								
 				MainConnection.Open();
@@ -114,8 +114,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_idset_calibs"].NpgsqlDbType = NpgsqlDbType.Integer;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution", businessObject.Idgroup_solution);
-				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idsolution_interm", businessObject.Idsolution_interm);
+				sqlCommand.Parameters["p_idsolution_interm"].NpgsqlDbType = NpgsqlDbType.Integer;
 
                 
                 MainConnection.Open();
@@ -414,9 +414,9 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CCalib_std.CCalib_stdFields.Idtemplate_method.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CCalib_std.CCalib_stdFields.Idgroup_solution.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CCalib_std.CCalib_stdFields.Idsolution_interm.ToString())))
 				{
-					businessObject.Idgroup_solution = dataReader.GetInt32(dataReader.GetOrdinal(CCalib_std.CCalib_stdFields.Idgroup_solution.ToString()));
+					businessObject.Idsolution_interm = dataReader.GetInt32(dataReader.GetOrdinal(CCalib_std.CCalib_stdFields.Idsolution_interm.ToString()));
 				}
 
 

@@ -16,7 +16,7 @@ namespace LimsProject.BusinessLayer
 			Concentration,
 			Idset_calibs,
 			Idtemplate_method,
-			Idgroup_solution
+			Idsolution_interm
 		}
 		#endregion
 
@@ -29,7 +29,7 @@ namespace LimsProject.BusinessLayer
 			decimal? _concentration;
 			int? _idset_calibs;
 			int? _idtemplate_method;
-			int? _idgroup_solution;
+			int? _idsolution_interm;
 
 		#endregion
 
@@ -126,15 +126,15 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public int?  Idgroup_solution
+		public int?  Idsolution_interm
 		{
-			 get { return _idgroup_solution; }
+			 get { return _idsolution_interm; }
 			 set
 			 {
-				 if (_idgroup_solution != value)
+				 if (_idsolution_interm != value)
 				 {
-					_idgroup_solution = value;
-					 PropertyHasChanged("Idgroup_solution");
+					_idsolution_interm = value;
+					 PropertyHasChanged("Idsolution_interm");
 				 }
 			 }
 		}

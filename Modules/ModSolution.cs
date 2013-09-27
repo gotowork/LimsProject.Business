@@ -223,24 +223,24 @@ namespace LimsProject.BusinessLayer.Modules
             SolucionTitulante
         }                
 
-        public CGroup_solution_methods GetGroup_solution_methods(int idtemplate_method, int idgroup_solution)
+        public CSolution_interm_methods GetSolution_interm_methods(int idtemplate_method, int idsolution_interm)
         {
-            CGroup_solution_methodsFactory faGroup_solution_methods = new CGroup_solution_methodsFactory();
-            List<CGroup_solution_methods> lstTmp = faGroup_solution_methods.GetAll();
+            CSolution_interm_methodsFactory faGroup_solution_methods = new CSolution_interm_methodsFactory();
+            List<CSolution_interm_methods> lstTmp = faGroup_solution_methods.GetAll();
 
             try
             {
-                if (lstTmp.Exists(c => c.Idtemplate_method == idtemplate_method && c.Idgroup_solution == idgroup_solution))
+                if (lstTmp.Exists(c => c.Idtemplate_method == idtemplate_method && c.Idsolution_interm == idsolution_interm))
                 {
-                    CGroup_solution_methods oGroup_solution_methods = 
-                        lstTmp.Single(c => c.Idtemplate_method == idtemplate_method 
-                            && c.Idgroup_solution == idgroup_solution);
-                    return oGroup_solution_methods;
+                    CSolution_interm_methods oSolution_interm_methods = 
+                        lstTmp.Single(c => c.Idtemplate_method == idtemplate_method
+                            && c.Idsolution_interm == idsolution_interm);
+                    return oSolution_interm_methods;
                 }
             }
             catch
             {
-                if (lstTmp.Count(c => c.Idtemplate_method == idtemplate_method && c.Idgroup_solution == idgroup_solution) > 1)
+                if (lstTmp.Count(c => c.Idtemplate_method == idtemplate_method && c.Idsolution_interm == idsolution_interm) > 1)
                     return lstTmp[0];
                 return null;
             }

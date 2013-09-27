@@ -59,8 +59,12 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_b"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution", businessObject.Idgroup_solution);
-				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idsolution_interm", businessObject.Idsolution_interm);
+				sqlCommand.Parameters["p_idsolution_interm"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_usersign", businessObject.Usersign);
+				sqlCommand.Parameters["p_usersign"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_datesign", businessObject.Datesign);
+				sqlCommand.Parameters["p_datesign"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 
 								
 				MainConnection.Open();
@@ -110,8 +114,12 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_b"].NpgsqlDbType = NpgsqlDbType.Numeric;
 				sqlCommand.Parameters.AddWithValue("p_idtemplate_method", businessObject.Idtemplate_method);
 				sqlCommand.Parameters["p_idtemplate_method"].NpgsqlDbType = NpgsqlDbType.Integer;
-				sqlCommand.Parameters.AddWithValue("p_idgroup_solution", businessObject.Idgroup_solution);
-				sqlCommand.Parameters["p_idgroup_solution"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_idsolution_interm", businessObject.Idsolution_interm);
+				sqlCommand.Parameters["p_idsolution_interm"].NpgsqlDbType = NpgsqlDbType.Integer;
+				sqlCommand.Parameters.AddWithValue("p_usersign", businessObject.Usersign);
+				sqlCommand.Parameters["p_usersign"].NpgsqlDbType = NpgsqlDbType.Varchar;
+				sqlCommand.Parameters.AddWithValue("p_datesign", businessObject.Datesign);
+				sqlCommand.Parameters["p_datesign"].NpgsqlDbType = NpgsqlDbType.Timestamp;
 
                 
                 MainConnection.Open();
@@ -405,9 +413,19 @@ namespace LimsProject.BusinessLayer.DataLayer
 					businessObject.Idtemplate_method = dataReader.GetInt32(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Idtemplate_method.ToString()));
 				}
 
-				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Idgroup_solution.ToString())))
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Idsolution_interm.ToString())))
 				{
-					businessObject.Idgroup_solution = dataReader.GetInt32(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Idgroup_solution.ToString()));
+					businessObject.Idsolution_interm = dataReader.GetInt32(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Idsolution_interm.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Usersign.ToString())))
+				{
+					businessObject.Usersign = dataReader.GetString(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Usersign.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Datesign.ToString())))
+				{
+					businessObject.Datesign = dataReader.GetDateTime(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Datesign.ToString()));
 				}
 
 

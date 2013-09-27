@@ -15,7 +15,9 @@ namespace LimsProject.BusinessLayer
 			A,
 			B,
 			Idtemplate_method,
-			Idgroup_solution
+			Idsolution_interm,
+			Usersign,
+			Datesign
 		}
 		#endregion
 
@@ -27,7 +29,9 @@ namespace LimsProject.BusinessLayer
 			decimal? _a;
 			decimal? _b;
 			int? _idtemplate_method;
-			int? _idgroup_solution;
+			int? _idsolution_interm;
+			string _usersign;
+			DateTime? _datesign;
 
 		#endregion
 
@@ -111,15 +115,41 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
-		public int?  Idgroup_solution
+		public int?  Idsolution_interm
 		{
-			 get { return _idgroup_solution; }
+			 get { return _idsolution_interm; }
 			 set
 			 {
-				 if (_idgroup_solution != value)
+				 if (_idsolution_interm != value)
 				 {
-					_idgroup_solution = value;
-					 PropertyHasChanged("Idgroup_solution");
+					_idsolution_interm = value;
+					 PropertyHasChanged("Idsolution_interm");
+				 }
+			 }
+		}
+
+		public string  Usersign
+		{
+			 get { return _usersign; }
+			 set
+			 {
+				 if (_usersign != value)
+				 {
+					_usersign = value;
+					 PropertyHasChanged("Usersign");
+				 }
+			 }
+		}
+
+		public DateTime?  Datesign
+		{
+			 get { return _datesign; }
+			 set
+			 {
+				 if (_datesign != value)
+				 {
+					_datesign = value;
+					 PropertyHasChanged("Datesign");
 				 }
 			 }
 		}
@@ -133,6 +163,7 @@ namespace LimsProject.BusinessLayer
 		{
 			ValidationRules.AddRules(new Validation.ValidateRuleNotNull("Idset_calibs", "Idset_calibs"));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Calib_group_name", "Calib_group_name",20));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usersign", "Usersign",20));
 		}
 
 		#endregion
