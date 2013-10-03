@@ -81,14 +81,18 @@ namespace LimsProject.BusinessLayer.Modules
         public List<CCustomCalibStd> GetCustomCalibStd(int idsolution_interm, CTemplate_method_aa templat_method_aa)
         {
             //cruzar calibStd con calibs, composición externa y filtrarlo por metodo
+            var query =
+                (from m in new CSet_calibsFactory().GetAll().Where(x => x.Last_calib == true)
+                 from n in new CCalib_stdFactory().GetAll().Where(x => x.Idset_calibs == m.Idset_calibs)
+                 select n).ToList();
+
             List<CCustomCalibStd> lst =
                 (from m in new CCalibFactory().GetAll().Where(x => x.Idtemplate_method == templat_method_aa.Idtemplate_method)
-                 join n in new CCalib_stdFactory()
-                    .GetAll()
+                 join n in query                    
                     .Where(x => x.Idtemplate_method == templat_method_aa.Idtemplate_method
                                 && x.Idsolution_interm == idsolution_interm)
                     on m.Idcalib equals n.Idcalib into mn
-                 from p in mn.DefaultIfEmpty()                 
+                 from p in mn.DefaultIfEmpty()
                  select new CCustomCalibStd
                  {
                      Idtemplate_method = m.Idtemplate_method,
@@ -96,8 +100,8 @@ namespace LimsProject.BusinessLayer.Modules
                      Idcalib_std = p == null ? 0 : p.Idcalib_std,
                      Name = m.Name_calib,
                      Concentration = m.Concentration,
-                     Absorbance = p == null ? Comun.NullInt32 : p.Absorbance,
-                     Absorbance_previus = p == null ? Comun.NullInt32 : p.Absorbance_previus
+                     Absorbance = p == null ? Comun.NullInt32 : 0,
+                     Absorbance_previus = p == null ? Comun.NullInt32 : p.Absorbance
                  }).ToList();
             
             return lst;
@@ -117,18 +121,11 @@ namespace LimsProject.BusinessLayer.Modules
 
         public CSet_calibs GetSet_CalibBy(int idsolution_interm, int idtemplate_method)
         {
-            CSet_calibsFactory faSet_calibs = new CSet_calibsFactory();
-            List<CSet_calibs> lstSet_calibs = 
-                faSet_calibs
+            return new CSet_calibsFactory()
                 .GetAll()
-                .Where(c => c.Idsolution_interm == idsolution_interm && c.Idtemplate_method == idtemplate_method).ToList();
-
-            if (lstSet_calibs.Count >= 1)
-            {
-                CSet_calibs oSet_calibs = lstSet_calibs[0];
-                return oSet_calibs;            
-            }
-            return null;
+                .Where(c => c.Idsolution_interm == idsolution_interm
+                    && c.Idtemplate_method == idtemplate_method
+                    && c.Last_calib == true).FirstOrDefault();
         }
     }
 

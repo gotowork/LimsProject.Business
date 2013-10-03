@@ -27,6 +27,7 @@ namespace LimsProject.BusinessLayer
 			Observation,
 			Lote,
 			Solution_status,
+			Solution_obs,
 			Expired_status,
 			Root_type_pattern,
 			Root_idmr_detail,
@@ -64,6 +65,7 @@ namespace LimsProject.BusinessLayer
 			string _observation;
 			string _lote;
 			bool? _solution_status;
+			string _solution_obs;
 			bool? _expired_status;
 			int? _root_type_pattern;
 			short? _root_idmr_detail;
@@ -317,6 +319,19 @@ namespace LimsProject.BusinessLayer
 			 }
 		}
 
+		public string  Solution_obs
+		{
+			 get { return _solution_obs; }
+			 set
+			 {
+				 if (_solution_obs != value)
+				 {
+					_solution_obs = value;
+					 PropertyHasChanged("Solution_obs");
+				 }
+			 }
+		}
+
 		public bool?  Expired_status
 		{
 			 get { return _expired_status; }
@@ -511,6 +526,7 @@ namespace LimsProject.BusinessLayer
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Solution_name", "Solution_name",50));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Observation", "Observation",100));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Lote", "Lote",12));
+			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Solution_obs", "Solution_obs",15));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Usernew", "Usernew",20));
 			ValidationRules.AddRules(new Validation.ValidateRuleStringMaxLength("Useredit", "Useredit",20));
 		}

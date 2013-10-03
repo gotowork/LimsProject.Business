@@ -83,6 +83,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_lote"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_solution_status", businessObject.Solution_status);
 				sqlCommand.Parameters["p_solution_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_solution_obs", businessObject.Solution_obs);
+				sqlCommand.Parameters["p_solution_obs"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_expired_status", businessObject.Expired_status);
 				sqlCommand.Parameters["p_expired_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_root_type_pattern", businessObject.Root_type_pattern);
@@ -184,6 +186,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_lote"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_solution_status", businessObject.Solution_status);
 				sqlCommand.Parameters["p_solution_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
+				sqlCommand.Parameters.AddWithValue("p_solution_obs", businessObject.Solution_obs);
+				sqlCommand.Parameters["p_solution_obs"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_expired_status", businessObject.Expired_status);
 				sqlCommand.Parameters["p_expired_status"].NpgsqlDbType = NpgsqlDbType.Boolean;
 				sqlCommand.Parameters.AddWithValue("p_root_type_pattern", businessObject.Root_type_pattern);
@@ -563,6 +567,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Solution_status.ToString())))
 				{
 					businessObject.Solution_status = dataReader.GetBoolean(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Solution_status.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Solution_obs.ToString())))
+				{
+					businessObject.Solution_obs = dataReader.GetString(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Solution_obs.ToString()));
 				}
 
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSolution_interm.CSolution_intermFields.Expired_status.ToString())))

@@ -17,7 +17,8 @@ namespace LimsProject.BusinessLayer
 			Idtemplate_method,
 			Idsolution_interm,
 			Usersign,
-			Datesign
+			Datesign,
+			Last_calib
 		}
 		#endregion
 
@@ -32,6 +33,7 @@ namespace LimsProject.BusinessLayer
 			int? _idsolution_interm;
 			string _usersign;
 			DateTime? _datesign;
+			bool? _last_calib;
 
 		#endregion
 
@@ -150,6 +152,19 @@ namespace LimsProject.BusinessLayer
 				 {
 					_datesign = value;
 					 PropertyHasChanged("Datesign");
+				 }
+			 }
+		}
+
+		public bool?  Last_calib
+		{
+			 get { return _last_calib; }
+			 set
+			 {
+				 if (_last_calib != value)
+				 {
+					_last_calib = value;
+					 PropertyHasChanged("Last_calib");
 				 }
 			 }
 		}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Collections;
 
 namespace LimsProject.BusinessLayer.Modules
 {
@@ -136,7 +137,8 @@ namespace LimsProject.BusinessLayer.Modules
                      Useredit = m.Useredit,
                      Usernew = m.Usernew,
                      Volumen = m.Volumen,
-                     Aliquot = m.Aliquot
+                     Aliquot = m.Aliquot,
+                     Solution_obs = m.Solution_obs
                  }).ToList();
 
             List<CSolution_interm> lstTotal = lstSolution.Union(lstPattern).ToList();
@@ -157,6 +159,27 @@ namespace LimsProject.BusinessLayer.Modules
             return lst;
         }
 
+        
+
+        public BindingList<SolMethods> GetMethodsBySol(int idsolution_interm)
+        {
+            List<SolMethods> query =
+                (from m in new CSolution_interm_methodsFactory().GetAll()
+                 from n in new Methods()
+                 .GetAllLastVersionMethods()
+                 .Where(x => x.Idtemplate_method == m.Idtemplate_method)
+                 where m.Idsolution_interm == idsolution_interm && m.Status == true
+                 select new SolMethods { 
+                     Unlink = false,
+                     Cod_template_method = n.Cod_template_method,
+                     Idtemplate_method = n.Idtemplate_method,
+                     Idelement = Convert.ToInt32(n.Idelement),
+                     Title = n.Title
+                 }).ToList();
+
+            return new BindingList<SolMethods>(query);
+        }
+
         public List<CSolution_interm> GetLstSolution_intermByMethod(int idtemplate_method)
         {
             List<CSolution_interm> lst =
@@ -167,5 +190,14 @@ namespace LimsProject.BusinessLayer.Modules
 
             return lst;
         }
+    }
+
+    public class SolMethods
+    {
+        public bool Unlink { get; set; }
+        public string Cod_template_method { get; set; }
+        public int Idtemplate_method { get; set; }
+        public int Idelement { get; set; }
+        public string Title { get; set; }
     }
 }

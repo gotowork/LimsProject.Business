@@ -65,6 +65,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_usersign"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datesign", businessObject.Datesign);
 				sqlCommand.Parameters["p_datesign"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters.AddWithValue("p_last_calib", businessObject.Last_calib);
+				sqlCommand.Parameters["p_last_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
 								
 				MainConnection.Open();
@@ -120,6 +122,8 @@ namespace LimsProject.BusinessLayer.DataLayer
 				sqlCommand.Parameters["p_usersign"].NpgsqlDbType = NpgsqlDbType.Varchar;
 				sqlCommand.Parameters.AddWithValue("p_datesign", businessObject.Datesign);
 				sqlCommand.Parameters["p_datesign"].NpgsqlDbType = NpgsqlDbType.Timestamp;
+				sqlCommand.Parameters.AddWithValue("p_last_calib", businessObject.Last_calib);
+				sqlCommand.Parameters["p_last_calib"].NpgsqlDbType = NpgsqlDbType.Boolean;
 
                 
                 MainConnection.Open();
@@ -426,6 +430,11 @@ namespace LimsProject.BusinessLayer.DataLayer
 				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Datesign.ToString())))
 				{
 					businessObject.Datesign = dataReader.GetDateTime(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Datesign.ToString()));
+				}
+
+				if (!dataReader.IsDBNull(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Last_calib.ToString())))
+				{
+					businessObject.Last_calib = dataReader.GetBoolean(dataReader.GetOrdinal(CSet_calibs.CSet_calibsFields.Last_calib.ToString()));
 				}
 
 

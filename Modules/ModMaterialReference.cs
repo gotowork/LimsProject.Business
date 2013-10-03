@@ -32,9 +32,26 @@ namespace LimsProject.BusinessLayer.Modules
                  {
                      t2.Idmr,
                      t1.Idmr_detail,
-                     t2.Cod_mr
-                 }).ToList();
+                     t2.Cod_mr,
+                     t1.Nominal_value
+                 }).Distinct().ToList();
 
+            return query1;
+        }
+
+        public IList GetConcentration_By_TypeMr(Comun.TypeMr typeMr, short idelement)
+        {
+            List<CMr_detail> lstMr_detail = new CMr_detailFactory().GetAll().Where(c=> c.Analyte == idelement).ToList();
+            List<CMr> lstMr = new CMrFactory().GetAll().Where(x => x.Type_mr == Convert.ToChar(typeMr)).ToList();
+
+            // get reference material
+            var query1 =
+                (from t1 in lstMr_detail
+                 from t2 in lstMr.Where(x=> x.Idmr == t1.Idmr)
+                 select new
+                 {
+                     t1.Nominal_value
+                 }).Distinct().ToList();
             return query1;
         }
 
